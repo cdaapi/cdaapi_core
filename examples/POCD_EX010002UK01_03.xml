@@ -1,0 +1,2536 @@
+<?xml version="1.0" encoding="UTF-8"?><!--This example message is provided for illustrative purposes only. It has had no clinical validation. Whilst every effort has been taken to ensure that the examples are consistent with the message specification contained within the MiM, where there are conflicts with the written message specification or schema, the specification or schema shall be considered to take precedence-->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:npfitlc="NPFIT:HL7:Localisation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../../schemas/POCD_MT000002UK01.xsd" moodCode="EVN" classCode="DOCCLIN">
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<npfitlc:messageType root="2.16.840.1.113883.2.1.3.2.4.18.17" extension="POCD_MT010002UK01"/>
+	<id root="7D5CD460-AE1A-11DB-9639-B18E1E0994CD"/>
+	<code code="313101000000108" codeSystem="2.16.840.1.113883.2.1.3.2.4.15"/>
+	<title>Overview Assessment</title>
+	<effectiveTime value="200708061100"/>
+	<confidentialityCode codeSystem="2.16.840.1.113883.5.25" code="V" displayName="very restricted"/>
+	<setId root="7D5CD460-AE1A-11DB-963C-B18E1E0994CD"/>
+	<versionNumber value="1"/>
+	<recordTarget typeCode="RCT" contextControlCode="OP">
+		<npfitlc:contentId extension="COCD_TP145201GB01#PatientRole" root="2.16.840.1.113883.2.1.3.2.4.18.16"/>
+		<patientRole classCode="PAT">
+			<templateId extension="COCD_TP145201GB01#PatientRole" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+			<id root="2.16.840.1.113883.2.1.3.2.4.18.24" extension="LOCAL26840"/>
+			<patient classCode="PSN" determinerCode="INSTANCE">
+				<templateId extension="COCD_TP145201GB01#patientPatient" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+				<name>
+					<given>Leima</given>
+					<family>Walters</family>
+				</name>
+				<administrativeGenderCode code="2" codeSystem="2.16.840.1.113883.2.1.3.2.4.16.25" displayName="Female"/>
+				<birthTime value="19700814"/>
+				<languageCommunication>
+					<templateId extension="COCD_TP145201GB01#languageCommunication" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+					<languageCode code="en" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.70"/>
+				</languageCommunication>
+			</patient>
+			<providerOrganization classCode="ORG" determinerCode="INSTANCE">
+				<templateId extension="COCD_TP145201GB01#providerOrganization" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+				<id extension="G396" root="2.16.840.1.113883.2.1.3.2.4.19.1"/>
+				<name>Hebburn GP Practice</name>
+				<standardIndustryClassCode code="TBA" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.288" displayName="Registered GP Practice"/>
+			</providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author typeCode="AUT" contextControlCode="OP">
+		<npfitlc:contentId extension="COCD_TP145200GB01#AssignedAuthor" root="2.16.840.1.113883.2.1.3.2.4.18.16"/>
+		<functionCode code="OA" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.178" displayName="Originating Author"/>
+		<time value="200708141515"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<templateId extension="COCD_TP145200GB01#AssignedAuthor" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+			<id root="2.16.840.1.113883.2.1.3.2.4.18.24" extension="LOCAL16308989"/>
+			<code code="NR1330" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.124" displayName="Social Worker"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<templateId extension="COCD_TP145200GB01#assignedPerson" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+				<name>
+					<family>Timpson</family>
+					<given>Leigh</given>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<templateId extension="COCD_TP145200GB01#representedOrganization" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+				<id extension="V396" root="2.16.840.1.113883.2.1.3.2.4.19.1"/>
+				<name>Hebburn Council</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP145018UK03#AssignedCustodian"/>
+		<assignedCustodian classCode="ASSIGNED">
+			<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP145018UK03#AssignedCustodian"/>
+			<representedCustodianOrganization determinerCode="INSTANCE" classCode="ORG">
+				<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP145018UK03#representedCustodianOrganization"/>
+				<id root="2.16.840.1.113883.2.1.3.2.4.19.1" extension="V396"/>
+				<name>Hebburn Council</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<informationRecipient typeCode="PRCP">
+		<npfitlc:contentId extension="COCD_TP145203GB02#IntendedRecipient" root="2.16.840.1.113883.2.1.3.2.4.18.16"/>
+		<intendedRecipient classCode="ASSIGNED">
+			<templateId extension="COCD_TP145203GB02#IntendedRecipient" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+			<receivedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<templateId extension="COCD_TP145203GB02#representedOrganization" root="2.16.840.1.113883.2.1.3.2.4.18.2"/>
+				<id extension="N396" root="2.16.840.1.113883.2.1.3.2.4.19.1"/>
+				<name>Hebburn NHS Trust</name>
+			</receivedOrganization>
+		</intendedRecipient>
+	</informationRecipient>
+	<componentOf typeCode="COMP">
+		<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146060UK01#EncompassingEncounter"/>
+		<encompassingEncounter moodCode="EVN" classCode="ENC">
+			<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146060UK01#EncompassingEncounter"/>
+			<id root="7D5CD460-AE1A-11DB-9640-B18E1E0994CD"/>
+			<code code="325941000000100" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Face to face assessment"/>
+			<effectiveTime>
+				<center value="20070806"/>
+			</effectiveTime>
+			<dischargeDispositionCode nullFlavor="NA"/>
+			<location typeCode="LOC">
+				<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146060UK01#location"/>
+				<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP145024UK01#HealthCareFacility"/>
+				<healthCareFacility classCode="SDLOC">
+					<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP145024UK01#HealthCareFacility"/>
+					<id nullFlavor="NA"/>
+					<code code="394778007" displayName="client's or patient's home" codeSystem="2.16.840.1.113883.2.1.3.2.4.15"/>
+				</healthCareFacility>
+			</location>
+		</encompassingEncounter>
+	</componentOf>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody moodCode="EVN" classCode="DOCBODY">
+			<component typeCode="COMP" contextConductionInd="true">
+				<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146205GB01#ClassificationSection"/>
+				<section moodCode="EVN" classCode="DOCSECT">
+					<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#ClassificationSection"/>
+					<id root="7D5CD460-AE1A-11DB-963D-B18E1E0994CD"/>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146065UK03#AssessmentEvent"/>
+						<encounter moodCode="EVN" classCode="ENC">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146065UK03#AssessmentEvent"/>
+							<id root="7D5E5B00-AE1A-11DB-966B-B18E1E0994CD"/>
+							<code code="325941000000100" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Face to face assessment"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+							<participant contextControlCode="OP" typeCode="LOC">
+								<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146065UK03#location1"/>
+								<participantRole classCode="SDLOC">
+									<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146065UK03#careSetting"/>
+									<code code="394778007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="client's or patient's home"/>
+								</participantRole>
+							</participant>
+							<entryRelationship typeCode="COMP" contextConductionInd="true">
+								<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146065UK03#entryRelationship1"/>
+								<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146100UK02#Assessment"/>
+								<seperatableInd value="false"/>
+								<observation moodCode="EVN" classCode="OBS">
+									<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146100UK02#Assessment"/>
+									<id root="7D616840-AE1A-11DB-9729-B18E1E0994CD"/>
+									<code code="193241000000107" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="single Assessment Process overview assessment"/>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<center value="20070806"/>
+									</effectiveTime>
+									<participant contextControlCode="OP" typeCode="DEV">
+										<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146100UK02#participant"/>
+										<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP145010UK03#ParticipantRole"/>
+										<participantRole classCode="ROL">
+											<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP145010UK03#ParticipantRole"/>
+											<code code="320161000000106" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="IT System"/>
+											<playingDevice determinerCode="INSTANCE" classCode="DEV">
+												<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP145010UK03#playingDevice"/>
+												<softwareName>/FACE Overview Assessment/5.0</softwareName>
+											</playingDevice>
+										</participantRole>
+									</participant>
+									<entryRelationship typeCode="SUBJ" contextConductionInd="true" inversionInd="true">
+										<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146100UK02#entryRelationship4"/>
+										<seperatableInd value="false"/>
+										<observation moodCode="INT" classCode="OBS">
+											<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146100UK02#plannedAssessmentReview"/>
+											<id root="7D5FE1A0-AE1A-11DB-96F1-B18E1E0994CD"/>
+											<code codeSystem="2.16.840.1.113883.2.1.3.2.4.17.220" code="PAR" displayName="Planned Assessment Review"/>
+											<effectiveTime value="20070925"/>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</entryRelationship>
+						</encounter>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-9666-B18E1E0994CD"/>
+							<code code="135815002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="general health good">
+								<originalText>
+									<reference value="#a2"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070814"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5CD460-AE1A-11DB-965A-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a3"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="299478007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="foot problem"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5CD460-AE1A-11DB-965B-B18E1E0994CD"/>
+							<code code="325081000000107" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to see">
+								<originalText>
+									<reference value="#a4"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-965B-B18E1E0994CD"/>
+							<code code="162340000" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="hearing difficulty">
+								<originalText>
+									<reference value="#a5"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-965D-B18E1E0994CD"/>
+							<code code="320171000000104" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to sleep">
+								<originalText>
+									<reference value="#a18"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-965F-B18E1E0994CD"/>
+							<code code="81765008" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="no pain">
+								<originalText>
+									<reference value="#a19"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5E5B00-AE1A-11DB-9661-B18E1E0994CD"/>
+							<code code="28181007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="operation on hip joint">
+								<originalText>
+									<reference value="#a1"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="200702"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5E5B00-AE1A-11DB-9662-B18E1E0994CD"/>
+							<code code="325831000000100" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="does use dosette box">
+								<originalText>
+									<reference value="#a8"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9664-B18E1E0994CD"/>
+							<code code="323311000000103" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to mange medication containers">
+								<originalText>
+									<reference value="#a6"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F2-B18E1E0994CD"/>
+							<code code="334911000000103" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to collect medication">
+								<originalText>
+									<reference value="#a7"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5E5B00-AE1A-11DB-9669-B18E1E0994CD"/>
+							<code code="458905016" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="medication review done">
+								<originalText>
+									<reference value="#a9"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="200608"/>
+								<high value="200708"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-9670-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a10"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="297982009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="skin problem"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146066UK01#PhysicalWellBeing"/>
+							<id root="7D5E5B00-AE1A-11DB-9672-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a16"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="230145002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty breathing"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146001UK04#LifeStyle"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146001UK04#LifeStyle"/>
+							<id root="7D5E5B00-AE1A-11DB-9674-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a28"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="230145002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="substance misuse behaviour"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9675-B18E1E0994CD"/>
+							<code code="30154200" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty getting on and off toilet">
+								<originalText>
+									<reference value="#a11"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9676-B18E1E0994CD"/>
+							<code code="284905001" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty performing toileting activities">
+								<originalText>
+									<reference value="#a12"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9677-B18E1E0994CD"/>
+							<code code="284972002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty performing dressing activity">
+								<originalText>
+									<reference value="#a29"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9678-B18E1E0994CD"/>
+							<code code="284787001" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="unable to wash self">
+								<originalText>
+									<reference value="#a30"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-9679-B18E1E0994CD"/>
+							<code code="129040008" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="bathing assisted">
+								<originalText>
+									<reference value="#a31"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5E5B00-AE1A-11DB-967B-B18E1E0994CD"/>
+							<code code="165227003" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="independant for grooming">
+								<originalText>
+									<reference value="#a32"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5FE1A0-AE1A-11DB-96C9-B18E1E0994CD"/>
+							<code code="129031009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="housework dependent">
+								<originalText>
+									<reference value="#a33"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5E5B00-AE1A-11DB-967D-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a13"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="230145002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="bowel problem"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F4-B18E1E0994CD"/>
+							<code code="45850009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="continent of urine">
+								<originalText>
+									<reference value="#a14"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F5-B18E1E0994CD"/>
+							<code code="24029004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="faecal continent">
+								<originalText>
+									<reference value="#a15"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F6-B18E1E0994CD"/>
+							<code code="288936000" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to swallow">
+								<originalText>
+									<reference value="#a17"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F7-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a20"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="413307004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="mental health problem"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F8-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a21"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="248054003" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="self-neglect"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96F9-B18E1E0994CD"/>
+							<code code="247602005" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="no problem with memory">
+								<originalText>
+									<reference value="#a22"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96FA-B18E1E0994CD"/>
+							<code code="247663003" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="orientated">
+								<originalText>
+									<reference value="#a23"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96FB-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a24"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="41006004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="depressed mood"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96FD-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a25"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="55929007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Feeling irritable"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96FE-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a26"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="248274002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="lack of energy"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146070UK01#MentalEmotionalWellBeing"/>
+							<id root="7D5FE1A0-AE1A-11DB-96FF-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a27"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="197480006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="anxiety disorder"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5FE1A0-AE1A-11DB-9700-B18E1E0994CD"/>
+							<code code="288884008" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to eat">
+								<originalText>
+									<reference value="#a34"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5FE1A0-AE1A-11DB-9701-B18E1E0994CD"/>
+							<code code="88853006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to drink">
+								<originalText>
+									<reference value="#a44"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146067UK01#ActivityOfDailyLiving"/>
+							<id root="7D5FE1A0-AE1A-11DB-9702-B18E1E0994CD"/>
+							<code code="286514002" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to cook food">
+								<originalText>
+									<reference value="#a35"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-96C8-B18E1E0994CD"/>
+							<code code="301501003" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty mobilising indoors">
+								<originalText>
+									<reference value="#a36"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-96CA-B18E1E0994CD"/>
+							<code code="301589003" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="unable to manage stairs">
+								<originalText>
+									<reference value="#a37"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5E5B00-AE1A-11DB-967E-B18E1E0994CD"/>
+							<code code="301648007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Difficulty getting in and out of chair">
+								<originalText>
+									<reference value="#a38"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5E5B00-AE1A-11DB-967F-B18E1E0994CD"/>
+							<code code="301564009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="unable to mobilise outside">
+								<originalText>
+									<reference value="#a43"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5E5B00-AE1A-11DB-9680-B18E1E0994CD"/>
+							<code code="300720005" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="unable to perform shopping activities">
+								<originalText>
+									<reference value="#a42"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5E5B00-AE1A-11DB-9681-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a41"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="311501000000100" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Transfers ising hoist"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5E5B00-AE1A-11DB-9683-B18E1E0994CD"/>
+							<code code="301662000" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to get on and off bed">
+								<originalText>
+									<reference value="#a39"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-9703-B18E1E0994CD"/>
+							<code code="320301000000109" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="unable to walk long distances">
+								<originalText>
+									<reference value="#a45"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-9704-B18E1E0994CD"/>
+							<code code="334671000000101" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="difficulty getting into and out of car">
+								<originalText>
+									<reference value="#a46"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-9705-B18E1E0994CD"/>
+							<code code="4908009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="past history of">
+								<originalText>
+									<reference value="#a47"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="161898004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="falls"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+							<id root="7D5FE1A0-AE1A-11DB-9706-B18E1E0994CD"/>
+							<code code="334751000000101" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Able to react to an emergency">
+								<originalText>
+									<reference value="#a48"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+							<id root="7D5FE1A0-AE1A-11DB-9707-B18E1E0994CD"/>
+							<code code="14732006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="No history of">
+								<originalText>
+									<reference value="#a49"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="95934001" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="victim of crime"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146072UK01#SecurityAbuseDiscrimination"/>
+							<id root="7D5FE1A0-AE1A-11DB-9708-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a50"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="324661000000105" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="adult protection concern"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146068UK01#Housing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146068UK01#Housing"/>
+							<id root="7D5E5B00-AE1A-11DB-9684-B18E1E0994CD"/>
+							<code code="276055001" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="access to or within the residence">
+								<originalText>
+									<reference value="#a51"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146068UK01#Housing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146068UK01#Housing"/>
+							<id root="7D616840-AE1A-11DB-9713-B18E1E0994CD"/>
+							<code code="224262000" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="house in good repair">
+								<originalText>
+									<reference value="#a52"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146068UK01#Housing"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146068UK01#Housing"/>
+							<id root="7D5FE1A0-AE1A-11DB-9709-B18E1E0994CD"/>
+							<code code="334401000000106 " codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to heat home">
+								<originalText>
+									<reference value="#a53"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="200708"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146069UK01#Mobility"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146069UK01#Mobility"/>
+							<id root="7D5FE1A0-AE1A-11DB-970B-B18E1E0994CD"/>
+							<code code="301687007" displayName="able to roll over in bed" codeSystem="2.16.840.1.113883.2.1.3.2.4.15">
+								<originalText>
+									<reference value="#a40"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-970C-B18E1E0994CD"/>
+							<code code="243876005" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="screening status">
+								<originalText>
+									<reference value="#a54"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+							<value xsi:type="ST">up-to-date</value>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-970D-B18E1E0994CD"/>
+							<code code="161843009" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Normal fluid intake">
+								<originalText>
+									<reference value="#a55"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D5FE1A0-AE1A-11DB-970F-B18E1E0994CD"/>
+							<code code="171258008" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Up-to-date with immunizations">
+								<originalText>
+									<reference value="#a56"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146021UK06#Service"/>
+						<act classCode="PCPR" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146021UK06#Service"/>
+							<id root="7D5FE1A0-AE1A-11DB-9710-B18E1E0994CD"/>
+							<code code="224477006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="receives help from lay carer">
+								<originalText>
+									<reference value="#a57"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</act>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146021UK06#Service"/>
+						<act classCode="PCPR" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146021UK06#Service"/>
+							<id root="7D616840-AE1A-11DB-9710-B18E1E0994CD"/>
+							<code code="323861000000106" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Adequate support provided by carer">
+								<originalText>
+									<reference value="#a58"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</act>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146004UK04#SocialOrPersonalCircumstance"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146004UK04#SocialOrPersonalCircumstance"/>
+							<id root="7D5E5B00-AE1A-11DB-968C-B18E1E0994CD"/>
+							<code code="373572006" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="clinical finding absent">
+								<originalText>
+									<reference value="#a59"/>
+								</originalText>
+								<qualifier>
+									<name code="246090004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="associated finding"/>
+									<value code="160822004" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Relationship problems"/>
+								</qualifier>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<high value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146071UK01#Finances"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146071UK01#Finances"/>
+							<id root="7D5E5B00-AE1A-11DB-9692-B18E1E0994CD"/>
+							<code code="300682007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="able to manage personal financial activities">
+								<originalText>
+									<reference value="#a60"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<center value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146026UK04#RiskToPatient"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146026UK04#RiskToPatient"/>
+							<id root="7D616840-AE1A-11DB-9711-B18E1E0994CD"/>
+							<code code="222701000000104" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="Risk to patient">
+								<originalText>
+									<reference value="#a61"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="20070806"/>
+							</effectiveTime>
+							<entryRelationship typeCode="SUBJ" contextConductionInd="false">
+								<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146026UK04#entryRelationship"/>
+								<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP147012UK03#FindingRef"/>
+								<seperatableInd value="false"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP147012UK03#FindingRef"/>
+									<id root="7D616840-AE1A-11DB-9712-B18E1E0994CD"/>
+									<code nullFlavor="NA"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#entry"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146012UK04#Finding"/>
+						<observation moodCode="EVN" classCode="OBS">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146012UK04#Finding"/>
+							<id root="7D616840-AE1A-11DB-9712-B18E1E0994CD"/>
+							<code code="129839007" codeSystem="2.16.840.1.113883.2.1.3.2.4.15" displayName="at risk for falls">
+								<originalText>
+									<reference value="#a61"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="20070806"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-963F-B18E1E0994CD"/>
+							<title>Administrative Details</title>
+							<text>
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												<content styleCode="Bold">Name of Assessor</content>
+											</td>
+											<td>Leigh Timpson</td>
+										</tr>
+										<tr>
+											<td rowspan="2" align="left" valign="top">
+												<content styleCode="Bold">Assessor Contact Details</content>
+											</td>
+											<td>tel: 0208 321 1234</td>
+										</tr>
+										<tr>
+											<td>fax: 0208 321 1243</td>
+										</tr>
+										<tr>
+											<td>
+												<content styleCode="Bold">Review Date</content>
+											</td>
+											<td>17-Sep-2007</td>
+										</tr>
+										<tr>
+											<td>
+												<content styleCode="Bold">Assessment Tools Used</content>
+											</td>
+											<td>FACE Overview Assessment</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C1-B18E1E0994CD"/>
+							<code code="D1" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Physical Wellbeing</title>
+							<text>
+								<table>
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D1">
+												<content styleCode="Bold">My Physical Wellbeing</content>
+												<paragraph ID="WP1_1">Desired Outcome - Improved Health</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD1" align="left" valign="top">
+												<content styleCode="Bold">My Disabilities, impairments and other Conditions</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Medical History</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold">Does the person suffer from a life-threatening or long-term condition?</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a1">Recent Procedure?</content>
+												</paragraph>
+												<paragraph>Yes, operation performed on hip</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Road Traffic accident 6 months previously, resulting in fractured hip and shoulder</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD2" valign="top">
+												<content styleCode="Bold">My General Physical Wellbeing</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being
+														<br/>
+													</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a2">General physical well-being</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Unintentional Weight Loss / Gain</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a3">General Foot Health</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD3" valign="top">
+												<content styleCode="Bold">Sensory Impairment</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a4">Eyes / Eyesight</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a5">Hearing</content>
+												</paragraph>
+												<paragraph>No problem / need
+													<br/>Rachel has been deaf from childhood
+												</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD4" valign="top">
+												<content styleCode="Bold">My Communication Needs</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Communication</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold">Speech / expression</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>Is quite deaf, but is able to lip read well. It is therefore recommended that people speak slowly and clearly whilst facing the client. Using this technique was able to understand all of what was being said and appropriately respond verbally.</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD5" valign="top">
+												<content styleCode="Bold">Medications</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Medication</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold">Takes as prescribed?</content>Yes
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a6">Difficulty with medicine pots?</content>No
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a7">Help required collecting medication?</content>No
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a8">Uses dosette box?</content>Yes
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold">Pharmacist involvement?</content>No
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a9">Medication reviewed in past year?</content>Yes
+													<br/>Medication was reviewed recently by GP
+												</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD6" valign="top">
+												<content styleCode="Bold">Lapses of Consciousness</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold">Seizures / epilepsy</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD7" valign="top">
+												<content styleCode="Bold">Skin Care / Wound Management</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a10">Pressure Area / Other Skin Problem</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD8" valign="top">
+												<content styleCode="Bold">Using the Toilet and Continence</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Mobility inside the home</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a11">Getting on / off toilet</content>
+												</paragraph>
+												<paragraph>Requires occasional assistance / performs with difficulty</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a12">Toileting</content>
+												</paragraph>
+												<paragraph>Requires occasional assistance / performs with difficulty</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a13">Bowel problems</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a14">Continence of urine</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a15">Continence of faeces</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD9" valign="top">
+												<content styleCode="Bold">Breathing</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a16">Breathing Difficulties</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD10" valign="top">
+												<content styleCode="Bold">Swallowing and My Oral Health</content>
+											</td>
+											<td>
+												<paragraph>
+													<content styleCode="Underline">Physical well-being</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a17">Swallowing Difficulties</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Oral Health Status</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD11" valign="top">
+												<content styleCode="Bold">Sleeping</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-Being</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a18">Sleep</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD12" valign="top">
+												<content styleCode="Bold">Pain</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Physical well-Being</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a19">Pain</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<paragraph/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C2-B18E1E0994CD"/>
+							<code code="D2" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Mental, Psychological and Emotional wellbeing</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D2">
+												<content styleCode="Bold">Mental, Psychological and Emotional wellbeing</content>
+												<paragraph ID="WP1_2">Desired Outcome - Improved Health</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD13" valign="top">
+												<content styleCode="Bold">My Mental Health Needs</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-being</content>
+												<paragraph>
+													<content styleCode="Bold">Prior psychiatric diagnosis</content>
+												</paragraph>
+												<paragraph>Not Known</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Indicators of severe mental illness</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a20">Other Mental Health Problem</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD14" valign="top">
+												<content styleCode="Bold">My Behaviour</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-being</content>
+												<paragraph>
+													<content styleCode="Bold">Risk behaviours</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a21">Self-neglect</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD15" valign="top">
+												<content styleCode="Bold">Memory, Thinking and Reasoning (Cognition)</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-being</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a22">Memory</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a23">Orientation</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>During the assessment she appeared to be in good spirits. She was easy to engage in conversation and did not demonstrate any signs of cognitive impairment. Her attention and concentration appeared to be good and information provided by her about how she manages her ADLs proved to be accurate when checked against collateral history from her son.</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD16" valign="top">
+												<content styleCode="Bold">Mood</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-Being</content>
+												<paragraph>
+													<content styleCode="Bold">Reaction to bereavement / loss</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a24">Depressed Mood</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a25">Irritability</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a26">Lowering of Energy, drive and interest</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a27">Anxiety / Phobias</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD17" valign="top">
+												<content styleCode="Bold">Misusing Substances</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Psychological well-Being</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a28">Substance misuse</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C3-B18E1E0994CD"/>
+							<code code="D3" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Activities of Daily Living</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D3">
+												<content styleCode="Bold">Activities of Daily Living</content>
+												<paragraph ID="WP2_1">Desired Outcome – Improved Personal Dignity and Autonomy</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD18" valign="top">
+												<content styleCode="Bold">Dressing / Undressing</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Self-care</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a29">Dressing / Undressing</content>
+												</paragraph>
+												<paragraph>Requires occasional assistance / performs with difficulty</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD19" valign="top">
+												<content styleCode="Bold">Personal Hygiene</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Self-care</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a30">Washing</content>
+												</paragraph>
+												<paragraph>Requires assistance of 1 person to perform activity</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a31">Bathing</content>
+												</paragraph>
+												<paragraph>Requires assistance of 1 person to perform activity</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a32">Grooming</content>
+												</paragraph>
+												<paragraph>performs independently</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Requires assistance with personal care tasks. She doesn't like showering and finds it difficult to complete a wash (particularly lower limbs and feet). Also requires some assistance with getting dressed.</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD20" valign="top">
+												<content styleCode="Bold">Doing Housework / My Daily Tasks</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Everyday tasks</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a33">Housework</content>
+												</paragraph>
+												<paragraph>Does not / cannot perform activity / performed by another person</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Family assist with domestic cleaning and shopping as required. Is at risk with her daily activities and routines as she is reliant on family for assistance with activities of daily living</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD21" valign="top">
+												<content styleCode="Bold">Eating and Drinking</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Self-care</content>
+												<paragraph>
+													<content styleCode="Bold">
+														<content ID="a34"/>Eating
+													</content>/
+													<content styleCode="Bold" ID="a44">Drinking</content>
+												</paragraph>
+												<paragraph>Performs independently</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Underline">Everyday tasks</content>
+												</paragraph>
+												<paragraph>
+													<content styleCode="Bold" ID="a35">Cooking / food preparation</content>
+												</paragraph>
+												<paragraph>Performs independently</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C4-B18E1E0994CD"/>
+							<code code="D4" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Mobility</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D4">
+												<content styleCode="Bold">Mobility</content>
+												<paragraph ID="WP2_2">Desired Outcome – Improved Personal Dignity and Autonomy</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD22" valign="top">
+												<content styleCode="Bold">Mobility in my Home</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Mobility inside the home</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a36">Moving from room to room</content>
+												</paragraph>
+												<paragraph>Requires occasional assistance / performs with difficulty</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a37">Going up / down stairs</content>
+												</paragraph>
+												<paragraph>Does not / cannot perform activity / performed by another person</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Does not have any stairs to negotiate at home.</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a38">Getting on / off chair</content>
+												</paragraph>
+												<paragraph>Performs Independently</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a39">Getting into / out of bed</content>
+												</paragraph>
+												<paragraph>Performs Independently</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a40">Turning in bed</content>
+												</paragraph>
+												<paragraph>Performs Independently</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a41">Needs hoist</content>
+												</paragraph>
+												<paragraph>No</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Has a decline in Skills been observed?</content>
+												</paragraph>
+												<paragraph>No</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD23" valign="top">
+												<content styleCode="Bold">Mobility outside my Home</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Mobility outside the home</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a42">Shopping</content>
+												</paragraph>
+												<paragraph>Does not / cannot perform activity / performed by another person</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Entering / leaving house</content>
+												</paragraph>
+												<paragraph>Requires assistance of 1 person to perform activity</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a43">Taking short walks</content>
+												</paragraph>
+												<paragraph>Does not / cannot perform activity / performed by another person</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a45">Taking longer walks</content>
+												</paragraph>
+												<paragraph>Does not / cannot perform activity / performed by another person</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a46">Getting into / out car</content>
+												</paragraph>
+												<paragraph>Requires assistance of 1 person to perform activity</paragraph>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Has a wheelchair for outdoor mobility but requires someone to accompany her.</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD24" valign="top">
+												<content styleCode="Bold">Falls</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Physical well-being</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a47">Falls (including history of falls)</content>
+												</paragraph>
+												<paragraph>Problem / need</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Informed me that she has had falls in the past. Her most recent fall resulted in admission to hospital as she was found on the floor.</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9653-B18E1E0994CD"/>
+							<code code="D5" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Care Preferences</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D5">
+												<content styleCode="Bold">My Care Preferences</content>
+												<paragraph ID="WP3_1">Desired Outcome - Exercise of Choice and Control</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D5_1" valign="top">
+												<content styleCode="Bold">My Care Preferences</content>
+											</td>
+											<td>
+												<content styleCode="Italics">{{ Not Covered by Assessment tool }}</content>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9652-B18E1E0994CD"/>
+							<code code="D6" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Adult Protection</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D6">
+												<content styleCode="Bold">Adult Protection</content>
+												<paragraph ID="WP4_1">Desired Outcome - Freedom from discrimination or harassment</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD25" valign="top">
+												<content styleCode="Bold">My Sense of Security</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Activities of daily living</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a48">Can the person respond to emergencies? (Yes / To a limited Extent / No)</content>
+												</paragraph>
+												<paragraph>Yes</paragraph>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Has an emergency cord and pendant community alarm in her flat.</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a49">Recent victim of crime?</content>
+												</paragraph>
+												<paragraph>No</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD26" valign="top">
+												<content styleCode="Bold">Abuse / Threats</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Interpersonal relationships</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a50">Adult Protection Issues</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9656-B18E1E0994CD"/>
+							<code code="D7" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Equal Treatment</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D7">
+												<content styleCode="Bold">Equal Treatment</content>
+												<paragraph ID="WP4_2">Desired Outcome - Freedom from discrimination or harassment</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D7_1" valign="top">
+												<content styleCode="Bold">Equal Treatment</content>
+											</td>
+											<td>
+												<content styleCode="Italics">{{Not Covered by Assessment Tool}}</content>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9657-B18E1E0994CD"/>
+							<code code="D8" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Home</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D8">
+												<content styleCode="Bold">My Home</content>
+												<paragraph ID="WP5_1">Desired Outcome - Improved Quality of Life</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD27" valign="top">
+												<content styleCode="Bold">My Housing Support Needs</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Home environment</content>
+												<paragraph>
+													<content styleCode="Bold">Adaptations</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD28" valign="top">
+												<content styleCode="Bold">My Current housing</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Housing situation</content>
+												<paragraph>
+													<content styleCode="Bold">Location of accommodation</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a51">Access to and within accommodation</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a52">General repair/ condition</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Amenities</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD29" valign="top">
+												<content styleCode="Bold">Heating My home in Winter</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Home environment</content>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a53">Heating</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9658-B18E1E0994CD"/>
+							<code code="D9" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Keeping Healthy</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D9">
+												<content styleCode="Bold">Keeping Healthy</content>
+												<paragraph ID="WP5_2">Desired Outcome - Improved Quality of Life</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D9_1" valign="top">
+												<content styleCode="Bold">Keeping Healthy</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Health screening</content>
+												<paragraph>
+													<content styleCode="Bold" ID="a54">Routine screening (required / Up-to-date)</content>
+												</paragraph>
+												<paragraph>Up-to-date</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a55">Fluid intake</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Diet / nutrition</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a56">Vaccinations</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Excercise</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5CD460-AE1A-11DB-9659-B18E1E0994CD"/>
+							<code code="D10" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Being Cared For</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D10">
+												<content styleCode="Bold">Being Cared For</content>
+												<paragraph ID="WP5_3">Desired Outcome - Improved Quality of Life</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D10_1" valign="top">
+												<content styleCode="Bold">Being Cared For</content>
+											</td>
+											<td>
+												<content styleCode="Underline" ID="a57">Family and carers</content>
+												<paragraph>
+													<content styleCode="Bold">Does the person receive help from a family member / carer?</content>
+												</paragraph>
+												<paragraph>Yes</paragraph>
+												<br/>
+												<paragraph>Mr Steven Walters, Tel No 01234 112233</paragraph>
+												<paragraph>Relationship to person: Son</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Does the person express worries or concerns about the person caring for them?</content>
+												</paragraph>
+												<paragraph>No</paragraph>
+												<br/>
+												<content styleCode="Underline">Interpersonal relationships</content>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a58">Level of carer support</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-965E-B18E1E0994CD"/>
+							<code code="D11" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>Access to Education, Training and Employment</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D11">
+												<content styleCode="Bold">Access to Education, Training and Employment</content>
+												<paragraph ID="WP6_1">Desired Outcome - Making a positive contribution</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D11_1" valign="top">
+												<content styleCode="Bold">Access to Education, Training and Employment</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Activities and employment</content>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Problems in employment</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Access to employment</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Access to education?</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Access to training</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>Rachel not in currently in employment, and is happy with that.</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-9663-B18E1E0994CD"/>
+							<code code="D12" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Social Wellbeing</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D12">
+												<content styleCode="Bold">My Social Wellbeing</content>
+												<paragraph ID="WP6_2">Desired Outcome - Making a positive contribution</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD30" valign="top">
+												<content styleCode="Bold">My Caring Responsibilities</content>
+											</td>
+											<td>
+												<content styleCode="Italics">{{ Not Covered by Assessment tool }}</content>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD31" valign="top">
+												<content styleCode="Bold">My Relationships</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Interpersonal relationships</content>
+												<paragraph>
+													<content styleCode="Bold">Level of social contact</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a59">Relationships with family/carers</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Other relationships</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD32" valign="top">
+												<content styleCode="Bold">Involvement in my Community</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Activities and employment</content>
+												<paragraph>
+													<content styleCode="Bold">Would the person like to be involved in more activities</content>
+												</paragraph>
+												<paragraph>Yes</paragraph>
+												<br/>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Has identified social isolation as an issue for her. currently unable to visit here mother which she used to do regularly.</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="SD33" valign="top">
+												<content styleCode="Bold">My Religious, Cultural and Spiritual Needs</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Cultural / spiritual issues</content>
+												<paragraph>
+													<content>No relevant issues raised during assessment.</content>
+												</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-966C-B18E1E0994CD"/>
+							<code code="D13" codeSystem="2.16.840.1.113883.2.1.3.2.4.17.222"/>
+							<title>My Finances</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td colspan="2" align="center" ID="D13">
+												<content styleCode="Bold">My Finances</content>
+												<paragraph ID="WP7_1">Desired Outcome - Economic well-being</paragraph>
+											</td>
+										</tr>
+										<tr>
+											<td ID="D13_1" valign="top">
+												<content styleCode="Bold">My Finances</content>
+											</td>
+											<td>
+												<content styleCode="Underline">Finances</content>
+												<paragraph>
+													<content styleCode="Bold">Income and benefits</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold">Problems receiving benefits</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<br/>
+												<paragraph>
+													<content styleCode="Bold" ID="a60">Finance management</content>
+												</paragraph>
+												<paragraph>No problem / need</paragraph>
+												<paragraph>Additional comments:</paragraph>
+												<paragraph>Financial management is assisted by son</paragraph>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-9668-B18E1E0994CD"/>
+							<title>Summary of Assessment</title>
+							<text>
+								<paragraph>
+									<content styleCode="Bold">Assessor's Overview/Formulation</content>
+								</paragraph>
+								<paragraph>Whilst managing relatively well at home, does have difficulty with personal care and has also identified social isolation as an issue for her. Reports that her son would be happy for her to live with him, however, she would like to remain independent and living in her home for as long as possible. Is happy to accept a care package to assist with this aim.</paragraph>
+								<br/>
+								<paragraph>
+									<content styleCode="Bold">Overall Impact</content>
+								</paragraph>
+								<paragraph>Meets FACS criteria at Substantial risk to independence due to poor mobility, falls risk and inability to manage personal care independently.</paragraph>
+								<br/>
+								<paragraph>
+									<content styleCode="Bold">Summary of Strengths and Protective Factors</content>
+								</paragraph>
+								<paragraph>Is willing to accept a care package to assist her to remain living at home independently. In addition, she has a supportive family who are willing to assist her as required.</paragraph>
+								<br/>
+								<paragraph>
+									<content styleCode="Bold">Summary of Key Problems / Need</content>
+								</paragraph>
+								<paragraph>Requires assistance with personal care.</paragraph>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C5-B18E1E0994CD"/>
+							<title>Summary of Risks Identified</title>
+							<text>
+								<table width="100%">
+									<tbody>
+										<tr>
+											<td>Risk re. physical condition</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk re. medication management</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of pressure sores</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of severe self-neglect</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of suicide</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of deliberate self-harm</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk to others from person</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk relating to wandering</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Moving/manual handling risk</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>
+												<content ID="a61">Risk of Falling</content>
+											</td>
+											<td>2 - some apparent risk (with previous history). History indicative of risk and current factors / warning signs suggest the presence of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of abuse by others</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Domestic risk (e.g. fire)</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk to Relationships</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of loss of autonomy</td>
+											<td>0 - No apparent risk. No history / warning signs of risk</td>
+										</tr>
+										<tr>
+											<td>Risk of social exclusion / isolation</td>
+											<td>1 - Some apparent risk (no previous history). No history indicative of risk but current factors / warning signs indicate possibility of risk</td>
+										</tr>
+										<tr>
+											<td>Risk to daily activity / routines</td>
+											<td>1 - Some apparent risk (no previous history). No history indicative of risk but current factors / warning signs indicate possibility of risk</td>
+										</tr>
+									</tbody>
+								</table>
+							</text>
+						</section>
+					</component>
+					<component typeCode="COMP" contextConductionInd="true">
+						<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146205GB01#component"/>
+						<npfitlc:contentId root="2.16.840.1.113883.2.1.3.2.4.18.16" extension="COCD_TP146061UK02#Section1"/>
+						<section moodCode="EVN" classCode="DOCSECT">
+							<templateId root="2.16.840.1.113883.2.1.3.2.4.18.2" extension="COCD_TP146061UK02#Section1"/>
+							<id root="7D5E5B00-AE1A-11DB-96C6-B18E1E0994CD"/>
+							<title>Recommended Actions</title>
+							<text>
+								<paragraph styleCode="Bold">Further Assessment</paragraph>
+								<paragraph>Financial assessment request form completed. To be submitted to Benefits and Assessment Team.</paragraph>
+								<br/>
+								<paragraph styleCode="Bold">Other actions</paragraph>
+								<paragraph>Care plan to be completed and care package commissioned with care brokers. Plan to include accessible transport.</paragraph>
+								<br/>
+								<paragraph styleCode="Bold">Separate carer's assessment</paragraph>
+								<paragraph>Contact Mr Walters at home next week to offer / arrange assessment</paragraph>
+							</text>
+						</section>
+					</component>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

@@ -1,0 +1,867 @@
+<xs:schema xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:hl7-org:v3" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			<changeHistory>
+				<date>12.03.2007</date>
+				<notes>
+					<p>Removed Complex types for as they are not reference in any schemas as listed below</p>
+					<ul>
+						<li>II.NPfIT.oid.mandatory.type1</li>
+						<li>II.NPfIT.Patient.oid.required</li>
+						<li>II.NPfIT.Patient.oid.mandatory</li>
+						<li>II.NPfIT.Patient.Temporary1.oid.required</li>
+						<li>II.NPfIT.Patient.Temporary1.oid.mandatory</li>
+						<li>II.NPfIT.Patient.Temporary2.oid.required</li>
+						<li>II.NPfIT.Patient.Temporary2.oid.mandatory</li>
+						<li>II.NPfIT.PersonSDS.oid.required</li>
+						<li>II.NPfIT.PersonSDS.oid.mandatory</li>
+						<li>II.NPfIT.AgentPersonSDS.oid.required</li>
+						<li>II.NPfIT.AgentPersonSDS.oid.mandatory</li>
+						<li>II.NPfIT.OrganizationSDS.Type1.oid.required</li>
+						<li>II.NPfIT.OrganizationSDS.Type1.oid.mandatory</li>
+						<li>II.NPfIT.OrganizationSDS.Type2.oid.required</li>
+						<li>II.NPfIT.OrganizationSDS.Type2.oid.mandatory</li>
+						<li>II.NPfIT.Organization.oid.required</li>
+						<li>II.NPfIT.Organization.oid.mandatory</li>
+						<li>II.NPfIT.DeviceSDS.oid.required</li>
+						<li>II.NPfIT.DeviceSDS.oid.mandatory</li>
+						<li>II.NPfIT.SystemSDS.oid.required</li>
+						<li>II.NPfIT.SystemSDS.oid.mandatory</li>
+						<li>II.NPfIT.Device.oid.required</li>
+						<li>II.NPfIT.Device.oid.mandatory</li>
+						<li>II.NPfIT.HealthCareProvider.Type1.oid.required</li>
+						<li>II.NPfIT.HealthCareProvider.Type1.oid.mandatory</li>
+						<li>II.NPfIT.HealthCareProvider.Type1.oid.required</li>
+						<li>II.NPfIT.HealthCareProvider.Type1.oid.mandatory</li>
+						<li>II.NPfIT.SDSRole.oid.required</li>
+						<li>II.NPfIT.SDSRole.oid.mandatory</li>
+						<li>II.NPfIT.GpPractice.oid.required</li>
+						<li>II.NPfIT.GpPractice.oid.mandatory</li>
+						<li>II.NPfIT.Message.oid.required</li>
+						<li>II.NPfIT.Message.oid.mandatory</li>
+					</ul>
+				</notes>
+				<notes>
+					<p>Removed from &quot;II.NPfIT.oid.list&quot; simpleType duplicate oid &quot;1.2.826.0.1285.0.1.10&quot;.</p>
+				</notes>
+			</changeHistory>
+			<changeHistory>
+				<date>12.03.2007</date>
+				<notes>
+					<p>Added new flavours &quot;Organisation registered with the SDS&quot;,&quot;Site registered with the SDS&quot; and &quot;Department registered with the SDS&quot;.</p>
+					<ul>
+						<li>II.NPfIT.OrganizationSDS.Organisation</li>
+						<li>II.NPfIT.OrganizationSDS.Site</li>
+						<li>II.NPfIT.OrganizationSDS.Department</li>
+					</ul>
+				</notes>
+			</changeHistory>
+			<changeHistory>
+				<date>11.07.2007</date>
+				<notes>
+					<p>Added new flavours &quot; CD.NPfIT.CDA.Url &quot; and &quot; CV.NPfIT.CDA.Url &quot; and &quot; CV.NPfIT.CDA.Url &quot;</p>
+					<p>This flavour fixes the url issue within the core data type url being tight.</p>
+				</notes>
+			</changeHistory>
+			<changeHistory>
+				<date>19.09.2007</date>
+				<notes>
+					<p>Deleted simple type &quot;II.NPfIT.oid.list&quot; as it is not referenced anywhere in the model schemas</p>
+				</notes>
+			</changeHistory>
+		</xs:documentation>
+	</xs:annotation>
+	<xs:include schemaLocation="datatypes.xsd"/>
+	<xs:simpleType name="II.NPfIT.root.oid">
+		<xs:restriction base="uid">
+			<xs:pattern value="([0-9][0-9]*)(\.[0-9][0-9]*)*">
+				<xs:annotation>
+					<xs:documentation>Pattern facet to carry only oid in root of an II data type</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.root.uuid">
+		<xs:restriction base="uid">
+			<xs:pattern value="[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}">
+				<xs:annotation>
+					<xs:documentation>Pattern facet to allow upper case hex in the uuid in root of II data type</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="II.NPfIT.oid.required">
+		<xs:complexContent>
+			<xs:restriction base="II">
+				<xs:attribute name="root" type="II.NPfIT.root.oid" use="optional"/>
+				<xs:attribute name="extension" type="st" use="optional"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+				<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
+				<xs:attribute name="displayable" type="bl" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="II.NPfIT.oid.required.assigningAuthorityName">
+		<xs:complexContent>
+			<xs:restriction base="II">
+				<xs:attribute name="root" type="II.NPfIT.root.oid" use="optional"/>
+				<xs:attribute name="extension" type="st" use="optional"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+				<xs:attribute name="assigningAuthorityName" type="st" use="optional"/>
+				<xs:attribute name="displayable" type="bl" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="II.NPfIT.oid.mandatory">
+		<xs:complexContent>
+			<xs:restriction base="II.NPfIT.oid.required">
+				<xs:attribute name="root" type="II.NPfIT.root.oid" use="required"/>
+				<xs:attribute name="extension" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="II.NPfIT.uuid.required">
+		<xs:complexContent>
+			<xs:restriction base="II">
+				<xs:attribute name="root" type="II.NPfIT.root.uuid" use="optional"/>
+				<xs:attribute name="extension" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+				<xs:attribute name="assigningAuthorityName" type="st" use="prohibited"/>
+				<xs:attribute name="displayable" type="bl" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="II.NPfIT.uuid.mandatory">
+		<xs:complexContent>
+			<xs:restriction base="II.NPfIT.uuid.required">
+				<xs:attribute name="root" type="II.NPfIT.root.uuid" use="required"/>
+				<xs:attribute name="extension" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="II.NPfIT.oid.mandatory.assignedAuthority">
+		<xs:complexContent>
+			<xs:restriction base="II">
+				<xs:attribute name="root" type="II.NPfIT.root.oid" use="required"/>
+				<xs:attribute name="extension" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="assigningAuthorityName" type="st" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+				<xs:attribute name="displayable" type="bl" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="II.NPfIT.Patient.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.4.1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Patient.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[0-9]{10}">
+				<xs:annotation>
+					<xs:documentation>Pattern facet to allow only ten digits for NHS Number</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Patient.Temporary1.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Patient.Temporary2.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Patient.Temporary.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9\-]*">
+				<xs:annotation>
+					<xs:documentation>Pattern facet to other temporary NHS numbers</xs:documentation>
+				</xs:annotation>
+			</xs:pattern>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.PersonSDS.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.65"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.PersonSDS.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.AgentPersonSDS.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.67"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.AgentPersonSDS.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Type1.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.1.10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Type1.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[A-Za-z][A-Za-z0-9\-]*"/>
+			<!-- <xs:pattern value="[A-Z][0-9]{5}"/>-->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Type2.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.109"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Type2.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Organization.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.1.10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.DeviceSDS.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.107"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.DeviceSDS.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[0-9]{12}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.HealthCareProvider.Type1.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.1.10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.HealthCareProvider.Type2.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.0.65"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.SDSRole.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="1.2.826.0.1285.0.2.1.104"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.GpPractice.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.4.3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Message.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.Message.extension">
+		<xs:restriction base="st">
+			<xs:pattern value="[A-Z]{4}_IN[0-9]{6}[A-Z]{2}[0-9]{2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Organisation.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.19.1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Organisation.extension">
+		<xs:restriction base="st"/>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Site.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.19.2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="II.NPfIT.OrganizationSDS.Department.oid">
+		<xs:restriction base="II.NPfIT.root.oid">
+			<xs:enumeration value="2.16.840.1.113883.2.1.3.2.4.19.3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TEL.NPFIT.use.required">
+		<xs:complexContent>
+			<xs:extension base="URL">
+				<xs:sequence>
+					<xs:element name="useablePeriod" type="IVL_TS" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="id" type="II" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="use" type="set_cs_TelecommunicationAddressUse" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ST.Title" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ST">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0" maxOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0" maxOccurs="0"/>
+					<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="prohibited"/>
+				<xs:attribute name="language" type="cs" use="prohibited"/>
+				<xs:attribute name="compression" type="cs_CompressionAlgorithm" use="prohibited"/>
+				<xs:attribute name="integrityCheck" type="bin" use="prohibited"/>
+				<xs:attribute name="integrityCheckAlgorithm" type="cs_IntegrityCheckAlgorithm" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ADXP.NPfIT.NotAny" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ST">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0"/>
+				</xs:sequence>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ADXP.NPfIT.Coded" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="ADXP.NPfIT.NotAny">
+				<xs:sequence>
+					<xs:element name="code" type="CV"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="AD.NPfIT.CodedCountry" mixed="true">
+		<xs:annotation>
+			<xs:documentation>Mailing and home or office addresses. A sequence of address parts, such as street or post office Box, city, postal code, country, etc.</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ANY">
+				<xs:sequence>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="delimiter">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="DEL"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="country" type="ADXP.NPfIT.Coded"/>
+						<xs:element name="state">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="STA"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="county">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="CPA"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="city">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="CTY"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="postalCode">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="ZIP"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="streetAddressLine">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="SAL"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="houseNumber">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="BNR"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="houseNumberNumeric">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="BNN"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="direction">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="DIR"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="streetName">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="STR"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="streetNameBase">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="STB"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="streetNameType">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="STTYP"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="additionalLocator">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="ADL"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="unitID">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="UNID"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="unitType">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="UNIT"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="carrier">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="CAR"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="censusTract">
+							<xs:complexType mixed="true">
+								<xs:complexContent>
+									<xs:restriction base="ADXP">
+										<xs:attribute name="partType" type="cs_AddressPartType" fixed="CEN"/>
+									</xs:restriction>
+								</xs:complexContent>
+							</xs:complexType>
+							<!-- VOTE: negativ minor: this will not be interoperable because
+  there are many census tract definitions. Needs to be coded. This
+  should be a location specification (Place class). -->
+						</xs:element>
+						<xs:element name="addressKey">
+							<xs:complexType mixed="true">
+								<xs:attribute name="partType" type="cs_AddressPartType" fixed="ADDRK"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="desc">
+							<xs:complexType mixed="true">
+								<xs:attribute name="partType" type="cs_AddressPartType" fixed="DESC"/>
+							</xs:complexType>
+						</xs:element>
+						<!-- This was supposed to be the generic part. The formally
+               correct schema way of doing that would involve defining
+               all the special part elements as substitution group
+               members for part. But that entails global elements
+               is unsafe scoping. So, we don't get into that here.
+               
+               xs:element name='part' type='ADXP'/ -->
+						<!--
+                jaxb implementors note: the jaxb code generator (v1.0.?) will fail to
+                append "Type" to streetNameType so that there will be duplicate
+                definitions in the java source for streetNameType.  You will have
+                to fix this manually.
+              -->
+					</xs:choice>
+					<xs:element name="useablePeriod" type="IVL_TS" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>A General Timing Specification (GTS) specifying the periods of time during which the address can be used. This is used to specify different addresses for different times of the year or to refer to historical addresses.</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+						<!-- FIXME: one would expect the name "GTS" here but it's not
+          SXCM does ALL the right things, it's just not the right NAME. -->
+					</xs:element>
+					<xs:element name="id" type="II" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="use" type="set_cs_PostalAddressUse" use="optional">
+					<xs:annotation>
+						<xs:documentation>A set of codes advising a system or user which address in a set of like addresses to select for a given purpose.</xs:documentation>
+						<xs:appinfo/>
+					</xs:annotation>
+				</xs:attribute>
+				<xs:attribute name="isNotOrdered" type="bl" use="optional">
+					<xs:annotation>
+						<xs:documentation>A boolean value specifying whether the order of the address parts is known or not. While the address parts are always a Sequence, the order in which they are presented may or may not be known. Where this matters, the isNotOrdered property can be used to convey this information.</xs:documentation>
+						<xs:appinfo/>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:simpleType name="cda.NPfIT.url">
+		<xs:restriction base="xs:anyURI"/>
+	</xs:simpleType>
+	<xs:complexType name="Cda.NPfIT.Url">
+		<xs:complexContent>
+			<xs:extension base="ANY">
+				<xs:attribute name="value" type="cda.NPfIT.url" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Any.NPfIT.Url">
+		<xs:complexContent>
+			<xs:extension base="Cda.NPfIT.Url">
+				<xs:sequence>
+					<xs:element name="useablePeriod" type="IVL_TS" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="id" type="II" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="use" type="set_cs_TelecommunicationAddressUse" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ANY.NHS.URL">
+		<xs:complexContent>
+			<xs:extension base="ANY">
+				<xs:attribute name="value" type="url" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Cda.NPfIT.ED" mixed="true">
+		<xs:complexContent>
+			<xs:extension base="BIN">
+				<xs:sequence>
+					<xs:element name="reference" type="Any.NPfIT.Url" minOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0"/>
+					<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="optional" default="text/plain"/>
+				<xs:attribute name="language" type="cs" use="optional"/>
+				<xs:attribute name="compression" type="cs_CompressionAlgorithm" use="optional"/>
+				<xs:attribute name="integrityCheck" type="bin" use="optional"/>
+				<xs:attribute name="integrityCheckAlgorithm" type="cs_IntegrityCheckAlgorithm" use="optional" default="SHA-1"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ED.NHS.NonXMLBodyText" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ED">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0"/>
+					<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="required"/>
+				<xs:attribute name="representation" type="cs_BinaryDataEncoding" use="required"/>
+				<xs:attribute name="language" type="cs" use="optional"/>
+				<xs:attribute name="compression" type="cs_CompressionAlgorithm" use="optional"/>
+				<xs:attribute name="integrityCheck" type="bin" use="optional"/>
+				<xs:attribute name="integrityCheckAlgorithm" type="cs_IntegrityCheckAlgorithm" use="optional" default="SHA-1"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ED.NHS.ObservationMedia" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ED">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0"/>
+					<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="required"/>
+				<xs:attribute name="representation" type="cs_BinaryDataEncoding" use="required"/>
+				<xs:attribute name="language" type="cs" use="optional"/>
+				<xs:attribute name="compression" type="cs_CompressionAlgorithm" use="optional"/>
+				<xs:attribute name="integrityCheck" type="bin" use="optional"/>
+				<xs:attribute name="integrityCheckAlgorithm" type="cs_IntegrityCheckAlgorithm" use="optional" default="SHA-1"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ED.NHS.URL" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ED">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="required"/>
+				<xs:attribute name="representation" type="cs_BinaryDataEncoding" use="required"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CD.NPfIT.CDA.Url">
+		<xs:complexContent>
+			<xs:extension base="ANY">
+				<xs:sequence>
+					<xs:element name="originalText" type="Cda.NPfIT.ED" minOccurs="0"/>
+					<xs:element name="qualifier" type="CR" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="group" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="qualifier" type="CR" maxOccurs="unbounded"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="translation" type="CD" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="uid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="optional"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="optional"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CE.NPfIT.CDA.Url">
+		<xs:complexContent>
+			<xs:restriction base="CD.NPfIT.CDA.Url">
+				<xs:sequence>
+					<xs:element name="qualifier" type="CR" minOccurs="0" maxOccurs="0"/>
+					<xs:element name="originalText" type="Cda.NPfIT.ED" minOccurs="0"/>
+					<xs:element name="translation" type="CD" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="uid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="optional"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="optional"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CE.NPfIT.Codedplain">
+		<xs:complexContent>
+			<xs:restriction base="CE">
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="required"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CDA.Url">
+		<xs:complexContent>
+			<xs:restriction base="CE.NPfIT.CDA.Url">
+				<xs:sequence>
+					<xs:element name="originalText" type="Cda.NPfIT.ED" minOccurs="0"/>
+					<xs:element name="translation" type="CD" minOccurs="0" maxOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="uid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="optional"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="optional"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.Codedplain">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="required"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.Codeonly">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="prohibited"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedOriginaltext">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:sequence>
+					<xs:element name="originalText" type="ED"/>
+				</xs:sequence>
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="required"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedDisplayname">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="prohibited"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="required"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedCodeSystem">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="required"/>
+				<xs:attribute name="codeSystem" type="oid" use="required"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="prohibited"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.Codedplain.required">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="oid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.Codeonly.required">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="oid" use="prohibited"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedOriginaltext.required">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:sequence>
+					<xs:element name="originalText" type="ED"/>
+				</xs:sequence>
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="oid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedDisplayname.required">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="oid" use="prohibited"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="optional"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CV.NPfIT.CodedCodeSystem.required">
+		<xs:complexContent>
+			<xs:restriction base="CV">
+				<xs:attribute name="code" type="cs" use="optional"/>
+				<xs:attribute name="codeSystem" type="oid" use="optional"/>
+				<xs:attribute name="codeSystemName" type="st" use="prohibited"/>
+				<xs:attribute name="codeSystemVersion" type="st" use="prohibited"/>
+				<xs:attribute name="displayName" type="st" use="prohibited"/>
+				<xs:attribute name="nullFlavor" type="cs_NullFlavor" use="optional"/>
+				<xs:attribute name="updateMode" type="cs_UpdateMode" use="prohibited"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+		<xs:complexType name="ED.NHS.NHS111Attachment" mixed="true">
+		<xs:complexContent>
+			<xs:restriction base="ED">
+				<xs:sequence>
+					<xs:element name="reference" type="TEL" minOccurs="0"/>
+					<xs:element name="thumbnail" type="thumbnail" minOccurs="0"/>
+					<xs:any namespace="##other" processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="mediaType" type="cs" use="required"/>
+				<xs:attribute name="representation" type="cs_BinaryDataEncoding" use="required"/>
+				<xs:attribute name="language" type="cs" use="optional"/>
+				<xs:attribute name="compression" type="cs_CompressionAlgorithm" use="optional"/>
+				<xs:attribute name="integrityCheck" type="bin" use="optional"/>
+				<xs:attribute name="integrityCheckAlgorithm" type="cs_IntegrityCheckAlgorithm" use="optional" default="SHA-1"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>itkcda</name>
+    </assembly>
+    <members>
+        <member name="T:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.#ctor(System.Guid)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">The guid for the ClinicalDocument.id</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.SetRecordTarget(nhs.itk.hl7v3.templates.NPFIT_000083_Role)">
+            <summary>
+            <para>Add a templated recordTarget to "ClinicalDocument.recordTarget"</para>
+            <para>Templates must be with constraint : NPFIT-000083#Role </para>
+            <para>Any template within theNPFIT_000083_Role is permitted</para>
+            <example> 
+            <code>
+            template rt = new template();
+            doc.AddRecordTarget(rt);
+            </code>
+            </example>
+            </summary>
+            /// <param name="template">The template to be used for the record target</param>
+            <see cref="T:nhs.itk.hl7v3.templates.NPFIT_000083_Role"/>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddAuthor(nhs.itk.hl7v3.templates.NPFIT_000081_Role,System.DateTime)">
+             <summary>
+             <para>Add a templated author to "ClinicalDocument.author"</para>
+             <para>Templates must be with constraint : NPFIT-000081#Role </para>
+             <para>Any template within the NPFIT_000083_Role is permitted</para>
+             <example> 
+            
+             <code>
+             template author = new template();
+             HL7V3_TS authorTime =  new HL7V3_TS(DateTime.Now());
+            
+             doc.AddAuthor(author,authorTime);
+             </code>
+             </example>
+             </summary>
+             <param name="template">The template to be used for the record target</param>
+             <param name="timeValue">The time that the authorn authored the document</param>
+             <see cref="T:nhs.itk.hl7v3.templates.NPFIT_000081_Role"/>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddParticipant(nhs.itk.hl7v3.templates.NPFIT_000086_Role,nhs.itk.hl7v3.utils.CDAParticipationType,nhs.itk.hl7v3.utils.CDAParticipationFunction)">
+            <summary>
+            Add any "Participant" participations to the CDA document
+            </summary>
+            <param name="template"></param>
+            <param name="typeCode"></param>
+            <param name="functionCode"></param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddAuthenticator(nhs.itk.hl7v3.templates.NPFIT_000084_Role,System.DateTime)">
+            <summary>
+            Add an 'authenticator. participation to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000084</param>
+            <param name="timeValue">The date and time the authentication took place.</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddInformant(nhs.itk.hl7v3.templates.NPFIT_000085_Role)">
+            <summary>
+            Add an 'informant' participation to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000085</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.SetCustodian(nhs.itk.hl7v3.templates.NPFIT_000014_Role)">
+            <summary>
+            Add an 'custodian' participation to the CDA document
+            </summary>
+            <param name="template"></param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddDataEnterer(nhs.itk.hl7v3.templates.NPFIT_000082_Role)">
+            <summary>
+            Add an 'data enterer' participation to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000082</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddDocumentationOf(nhs.itk.hl7v3.templates.NPFIT_000050_Act)">
+            <summary>
+            Allow the addition of 'Service Event" templates
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000050</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddRelatedDocument(nhs.itk.hl7v3.cda.classes.act_CDAParentDocument)">
+            <summary>
+            Add any "Related Documents" to the CDA document
+            </summary>
+            <param name="relatedDoc">A 'CDAParentDocument' describing the document to be referenced</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddPrimaryInformationRecipient(nhs.itk.hl7v3.templates.NPFIT_000080_Role)">
+            <summary>
+            Add a primary 'information recipient' participation to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000080</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddTrackerInformationRecipient(nhs.itk.hl7v3.templates.NPFIT_000080_Role)">
+            <summary>
+            Add a tracker 'information recipient' participation to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000080</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddAuthorization(nhs.itk.hl7v3.templates.NPFIT_000051_Act)">
+            <summary>
+            Add an 'authorization' act (aka consent) to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000051</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddComponentOf(nhs.itk.hl7v3.templates.NPFIT_000052_Act)">
+            <summary>
+            Add an 'Encompassing Encounter" to the CDA document
+            </summary>
+            <param name="template">A valid template for the constraint NPFIT_000052</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddNonXMLBody(System.String,System.String)">
+            <summary>
+            Add a non XML body to the CDA document. The supplied file will be BASE64 encoded and inserted in the CDA document.
+            </summary>
+            <param name="mediaType"></param>
+            <param name="filename"></param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddStructuredBody(System.String,nhs.itk.hl7v3.templates.ITextSection)">
+            <summary>
+            Add a Structured Body to the CDA document
+            </summary>
+            <param name="guidId">The guid to be used as the id of the body</param>
+            <param name="structuredText">The structured text section to be added</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.AddStructuredBody(nhs.itk.hl7v3.templates.ITextSection)">
+            <summary>
+            Add a Structured Body to the CDA document, generate a guid for the id.
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.ClinicalDocument_POCD_MT010011GB02.CreateXML(System.String)">
+            <summary>
+            Serialise the CDA document to an XML file
+            </summary>
+            <param name="fileLocation">filename of the XML file to be created</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FE0C3F5-3827-4C18-B329-3DE71D0EC5C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHSITKTemplates</RootNamespace>
+    <AssemblyName>NHSITKTemplates</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MARC.Everest, Version=1.3.0.0, Culture=neutral, PublicKeyToken=ba5b2480018546af, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\release\MARC.Everest.dll</HintPath>
+    </Reference>
+    <Reference Include="MARC.Everest.Formatters.XML.Datatypes.R1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=50c44f29d884a7e5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\release\MARC.Everest.Formatters.XML.Datatypes.R1.dll</HintPath>
+    </Reference>
+    <Reference Include="MARC.Everest.Formatters.XML.ITS1, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a761391c991e4f91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\release\MARC.Everest.Formatters.XML.ITS1.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cdaclasses\actRel_authorization_000051.cs" />
+    <Compile Include="cdaclasses\actRel_componentOf_000052.cs" />
+    <Compile Include="cdaclasses\actRel_DocumentationOf_000050.cs" />
+    <Compile Include="cdaclasses\actRel_RelatedDocument.cs" />
+    <Compile Include="cdaclasses\act_EncompassingEncounter.cs" />
+    <Compile Include="cdaclasses\act_CDAParentDocument.cs" />
+    <Compile Include="cdaclasses\cdaBody.cs" />
+    <Compile Include="cdaclasses\actRel_entry_000066.cs" />
+    <Compile Include="cdaclasses\cdaConfig.cs" />
+    <Compile Include="cdaclasses\CDAModel.cs" />
+    <Compile Include="cdaclasses\cdaClassificationSection.cs" />
+    <Compile Include="cdaclasses\act_ObservationMedia.cs" />
+    <Compile Include="cdaclasses\p_participation_000089.cs" />
+    <Compile Include="cdaclasses\p_subject_000070.cs" />
+    <Compile Include="cdaclasses\r_relatedSubject.cs" />
+    <Compile Include="cdaclasses\p_performer_000091.cs" />
+    <Compile Include="cdaclasses\e_device.cs" />
+    <Compile Include="cdaclasses\e_LanguageCommunication.cs" />
+    <Compile Include="cdaclasses\e_organisation.cs" />
+    <Compile Include="cdaclasses\e_patient.cs" />
+    <Compile Include="cdaclasses\e_person.cs" />
+    <Compile Include="cdaclasses\p_authenticator_000084.cs" />
+    <Compile Include="cdaclasses\p_author_000081.cs" />
+    <Compile Include="cdaclasses\p_custodian_000014.cs" />
+    <Compile Include="cdaclasses\p_dataEnterer_000082.cs" />
+    <Compile Include="cdaclasses\p_encounterParticipant_000089.cs" />
+    <Compile Include="cdaclasses\p_informant_000085.cs" />
+    <Compile Include="cdaclasses\p_location_000090.cs" />
+    <Compile Include="cdaclasses\p_participation_000086.cs" />
+    <Compile Include="cdaclasses\p_recipient_000080.cs" />
+    <Compile Include="cdaclasses\p_recordTarget_000083.cs" />
+    <Compile Include="cdaclasses\p_responsibleParty_000088.cs" />
+    <Compile Include="cdaclasses\r_assignedAuthor.cs" />
+    <Compile Include="cdaclasses\r_assignedCustodian.cs" />
+    <Compile Include="cdaclasses\r_assignedEntity.cs" />
+    <Compile Include="cdaclasses\r_associatedEntity.cs" />
+    <Compile Include="cdaclasses\r_Generic.cs" />
+    <Compile Include="cdaclasses\r_healthCareFacilityr.cs" />
+    <Compile Include="cdaclasses\r_intendedRecipient.cs" />
+    <Compile Include="cdaclasses\r_patientRole.cs" />
+    <Compile Include="cdaclasses\r_relatedEntity.cs" />
+    <Compile Include="constraints\NPFIT-000070-Role.cs" />
+    <Compile Include="constraints\IParticipation.cs" />
+    <Compile Include="constraints\ITemplateAuthor.cs" />
+    <Compile Include="constraints\NPFIT-000066-Section.cs" />
+    <Compile Include="constraints\ICodedEntry.cs" />
+    <Compile Include="constraints\ITextSection.cs" />
+    <Compile Include="constraints\NPFIT-000040-Section.cs" />
+    <Compile Include="constraints\templates\TP145213GB01_RelatedSubject.cs" />
+    <Compile Include="constraints\templates\TP146224GB02_Atachment.cs" />
+    <Compile Include="constraints\templates\TP146248GB01_ReferenceURL.cs" />
+    <Compile Include="constraints\templates\TP146229GB01_TextSection.cs" />
+    <Compile Include="constraints\NPFIT-000091-Role.cs" />
+    <Compile Include="constraints\ITemplateConstraint.cs" />
+    <Compile Include="constraints\NPFIT-000014-Role.cs" />
+    <Compile Include="constraints\NPFIT-000050-Act.cs" />
+    <Compile Include="constraints\NPFIT-000051-Act.cs" />
+    <Compile Include="constraints\NPFIT-000052-Act.cs" />
+    <Compile Include="constraints\NPFIT-000080-Role.cs" />
+    <Compile Include="constraints\NPFIT-000081-Role.cs" />
+    <Compile Include="constraints\NPFIT-000082-Role.cs" />
+    <Compile Include="constraints\NPFIT-000083-Role.cs" />
+    <Compile Include="constraints\NPFIT-000084-Role.cs" />
+    <Compile Include="constraints\NPFIT-000085-Role.cs" />
+    <Compile Include="constraints\NPFIT-000086-Role.cs" />
+    <Compile Include="constraints\NPFIT-000088-Role.cs" />
+    <Compile Include="constraints\NPFIT-000089-Role.cs" />
+    <Compile Include="constraints\NPFIT-000090-Role.cs" />
+    <Compile Include="constraints\templates\TP145204GB03_RecipientWorkgroupUniversal.cs" />
+    <Compile Include="constraints\templates\TP145202GB02_RecipientPersonUniversal.cs" />
+    <Compile Include="constraints\templates\TP145203GB03_RecipientOrganizationUniversal.cs" />
+    <Compile Include="datatypes\AD.cs" />
+    <Compile Include="datatypes\SnomedConcept.cs" />
+    <Compile Include="datatypes\IVLTS.cs" />
+    <Compile Include="datatypes\NULL.cs" />
+    <Compile Include="datatypes\PN.cs" />
+    <Compile Include="datatypes\TEL.cs" />
+    <Compile Include="datatypes\TS.cs" />
+    <Compile Include="oids\OIDStore.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rim\ActClass.cs" />
+    <Compile Include="rim\ActRelationshipClass.cs" />
+    <Compile Include="rim\EntityClass.cs" />
+    <Compile Include="rim\ParticipationClass.cs" />
+    <Compile Include="rim\RoleClass.cs" />
+    <Compile Include="constraints\templates\TP145007UK03_RelatedEntity.cs" />
+    <Compile Include="constraints\templates\TP145018UK03_CustodianOrganizationUniversal.cs" />
+    <Compile Include="constraints\templates\TP145200GB01_AuthorPersonUniversal.cs" />
+    <Compile Include="constraints\templates\TP145201GB01_PatientUniversal.cs" />
+    <Compile Include="constraints\templates\TP145202GB01_RecipientPersonUniversal.cs" />
+    <Compile Include="constraints\templates\TP145203GB02_RecipientOrganizationUniversal.cs" />
+    <Compile Include="constraints\templates\TP145204GB02_RecipientWorkgroupUniversal.cs" />
+    <Compile Include="constraints\templates\TP145205GB01_PersonUniversal.cs" />
+    <Compile Include="constraints\templates\TP145207GB01_AuthorDeviceUniversal.cs" />
+    <Compile Include="constraints\templates\TP145208GB01_AuthorNonNamedPersonUniversal.cs" />
+    <Compile Include="constraints\templates\TP145210GB01_PersonWithOrganizationUniversal.cs" />
+    <Compile Include="constraints\templates\TP145211GB01_HealthCareFacilityUniversal.cs" />
+    <Compile Include="constraints\templates\TP145212GB02_WorkgroupUniversal.cs" />
+    <Compile Include="constraints\templates\TP145214GB01_DocumentParticipantUniversal.cs" />
+    <Compile Include="constraints\templates\TP146226GB02_Consent.cs" />
+    <Compile Include="constraints\templates\TP146227GB02_ServiceEvent.cs" />
+    <Compile Include="constraints\templates\TP146228GB01_EncompassingEncounter.cs" />
+    <Compile Include="utils\enumTools.cs" />
+    <Compile Include="vocabs\CDAVocabs.cs" />
+    <Compile Include="vocabs\commonEnums.cs" />
+    <Compile Include="vocabs\ConstrainedNulls.cs" />
+    <Compile Include="XMLITS\its.cs" />
+    <Compile Include="XMLITS\XMLFormatter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

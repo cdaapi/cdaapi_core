@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NHSITKTemplates</name>
+    </assembly>
+    <members>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000080_Role">
+            <summary>
+            Constraint for ClinicalDocument.informationRecipient
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.ITemplateConstraint">
+            <summary>
+            Interface for template classes.
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.ITemplateConstraint.getTemplateID">
+            <summary>
+            Method to return the ID of the template.
+            </summary>
+            <returns>Template Identifier (i.e. TP146266GB02 )</returns>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.ITemplateConstraint.getTemplateText">
+            <summary>
+            Method to retuen the Template text of the template
+            </summary>
+            <returns>Template Text (i.e. PersonUniversal)</returns>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.ITemplateConstraint.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Method to serialise the template to CDA XML
+            </summary>
+            <param name="writer">The XmlWriter object being used for serialisation</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:nhs.itk.hl7v3.datatypes.IVLTS_Helper" -->
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.Low">
+            <summary>
+            The start date/time of a time span
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.LowPrecision">
+            <summary>
+            Set the precision for the date/time
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.High">
+            <summary>
+            The end date/time of a time span
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.HighPrecision">
+            <summary>
+            Set the precision for the date/time
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.Center">
+            <summary>
+            The date time expressed as a single value, when no time span is required.
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.CenterPrecision">
+            <summary>
+            Set the precision for the date/time
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:nhs.itk.hl7v3.datatypes.IVLTS_Helper.IVLTS" -->
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000081_Role">
+            <summary>
+            Constraint for ClinicalDocument.author
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.utils.StringValue.#ctor(System.String)">
+            <summary>
+            Set the string value for the entity
+            </summary>
+            <param name="value">String value of the entity</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.utils.StringValue.#ctor(System.String,System.String)">
+            <summary>
+            Set the string value and the description for the entity
+            </summary>
+            <param name="value1">String value of the entity</param>
+            <param name="value2">Description of the entity</param>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000052_Act">
+            <summary>
+            Constraint for ClinicalDocument.encompassingEncounter
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000051_Act">
+            <summary>
+            Constraint for ClinicalDocument.consent
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146226GB02_Consent.#ctor">
+            <summary>
+            Template Constructor
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.xml.FormatterHelper">
+            <summary>
+            Class to help with the XML serialisation of the HL7 V3 data types
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.xml.FormatterHelper.SerialiseDataType(MARC.Everest.Interfaces.IGraphable,System.Xml.XmlWriter,System.String)">
+            <summary>
+            Format a data type into a string in the CDA namespace
+            </summary>
+            <param name="dataType">The data type to format</param>
+            <param name="elementName">The name of the element</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.xml.FormatterHelper.SerialiseDataType(MARC.Everest.Interfaces.IGraphable,System.Xml.XmlWriter,System.String,System.String)">
+            <summary>
+            Format a data type into a string in a localisation namespace
+            </summary>
+            <param name="dataType">The data type to format</param>
+            <param name="elementName">The name of the element</param>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.TP145007UK03_RelatedEntity">
+            <summary>
+            Template stuff
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000085_Role">
+            <summary>
+            Constraint for ClinicalDocument.informant
+            </summary>    
+        </member>
+        <member name="F:nhs.itk.hl7v3.templates.TP145007UK03_RelatedEntity.RelatedEntityRole">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145007UK03_RelatedEntity.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000050_Act">
+            <summary>
+            Constraint for ClinicalDocument.serviceEvent
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.ITextSection">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000040_Section">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.xml.its.TemplateLookAhead(System.String,System.Xml.XmlWriter)">
+            <summary>
+            Write template lookahead markup for 2.16.840.1.113883.2.1.3.2.4.18.16
+            </summary>
+            <param name="templateId">The template identifier</param>
+            <param name="writer">XML Writer stream</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.xml.its.TemplateSignpost(System.String,System.Xml.XmlWriter)">
+            <summary>
+            Write internal template markup for 2.16.840.1.113883.2.1.3.2.4.18.2
+            </summary>
+            <param name="templateId">The template identifier</param>
+            <param name="writer">XML Writer stream</param>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000088_Role">
+            <summary>
+            Constraint for ClinicalDocument.encompassingEncounter.responsibleParty
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000089_Role">
+            <summary>
+            Constraint for ClinicalDocument.encompassingEncounter.encounterParticipant
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000091_Role">
+            <summary>
+            Constraint for ServiceEvent.Performer
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145210GB01_PersonWithOrganizationUniversal.SetStructuredAddress(nhs.itk.hl7v3.datatypes.AD_Helper)">
+            <summary>
+            Set the address using the TEL_Helper class
+            </summary>
+            <param name="address"></param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145210GB01_PersonWithOrganizationUniversal.AddTelecom(nhs.itk.hl7v3.datatypes.TEL_Helper)">
+            <summary>
+            Add a telecom using the TEL_Helper class
+            </summary>
+            <param name="telecom"></param>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.IParticipation">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000090_Role">
+            <summary>
+            Constraint for ClinicalDocument.encompassingEncounter.healthCareFacility
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000014_Role">
+            <summary>
+            Constraint for ClinicalDocument.custodian
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_encounterParticipant_000089.Role">
+            
+              TO DO - Need X-domain
+            
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000084_Role">
+            <summary>
+            Constraint for ClinicalDocument.authenticator
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000066_Section">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.ICodedEntry">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146224GB02_Attachment.#ctor">
+            <summary>
+            Template Constructor
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.ITemplateAuthor">
+            <summary>
+            Constraint for Text Section
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.serviceEventPerformer.PRF">
+            <summary>
+            Performer
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.serviceEventPerformer.PPRF">
+            <summary>
+            Primary Performer
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.serviceEventPerformer.SPRF">
+            <summary>
+            Secondary Performer
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.NotSet">
+            <summary>
+            Null value - will not be included in XML
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.ADMPHYS">
+            <summary>
+            Admitting physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.ANEST">
+            <summary>
+            Anaesthetist
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.ANRS">
+            <summary>
+            Anaesthesia nurse
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.ATTPHYS">
+            <summary>
+            Attending physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.DISPHYS">
+            <summary>
+            Discharging physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.FASST">
+            <summary>
+            Fist assistant surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.MDWF">
+            <summary>
+            Midwife
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.NASST">
+            <summary>
+            Nurse assistant
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.PCP">
+            <summary>
+            Primary care physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.PRISURG">
+            <summary>
+            Primary surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.RNDPHYS">
+            <summary>
+            Rounding physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.SASST">
+            <summary>
+            Second assistant surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.SNRS">
+            <summary>
+            Scrub nurse
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.cda.classes.p_performer_000091.participationFunction.TASST">
+            <summary>
+            Third assistant
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.datatypes.TS_Precision">
+            <summary>
+            Enumeration for precision.
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.CDAModel.SetDocumentCodeSnomedCT(System.String,System.String)">
+            <summary>
+            Set the 'Document Code' for the CDA document
+            </summary>
+            <param name="codeValue">The SNOMED concept code for the document</param>
+            <param name="displayName">The display name for the concept code</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.CDAModel.SetEffectiveTime(System.DateTime)">
+            <summary>
+            Set the 'Effective Time' for the document - i.e. the time the documet was created.
+            </summary>
+            <param name="dateTime">The date/time</param>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.Title">
+            <summary>
+            Set the title for the CDA document
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.ConfidentialityCode">
+            <summary>
+            Set the 'confidentialityCode' using the CDA defined vocab
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.MessageType">
+            <summary>
+            Set the Message Type for the CDA document
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.Id">
+            <summary>
+            Set the GUID for the 'Id' of the CDA document
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.SetId">
+            <summary>
+            Set the GUID for the 'SetId' of the CDA document
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.CDAModel.VersionNumber">
+            <summary>
+            Set the 'VersionNumber' of the CDA document
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.datatypes.PN_Helper.#ctor">
+            <summary>
+            Constructor for the Person Name (PN) Helper class.
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.PN">
+            <summary>
+            The PN property returns a valid HL7V3 PN datatype.
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.UnstructuredName">
+            <summary>
+            The unstructured name component.
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Prefix">
+            <summary>
+            The prefix component of the name (e.g. Mr,Mrs,Dr )
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Suffix">
+            <summary>
+            The suffix component of the name
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Family">
+            <summary>
+            The family component to the name (e.g. the Surname)
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Given1">
+            <summary>
+            The first given component of the name (e.g. the forename)
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Given2">
+            <summary>
+            The second given component of the name (e.g. the middle name)
+            </summary>
+        </member>
+        <member name="P:nhs.itk.hl7v3.datatypes.PN_Helper.Use">
+            <summary>
+            The 'use' compnent of the name
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000083_Role">
+            <summary>
+            Constraint for ClinicalDocument.recordTarget
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.cda.classes.actRel_DocumentationOf_000050.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialise the class to CDA XML
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.ADMPHYS">
+            <summary>
+            Admitting physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.ANEST">
+            <summary>
+            Anaesthetist
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.ANRS">
+            <summary>
+            Anaesthesia nurse
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.ATTPHYS">
+            <summary>
+            Attending physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.DISPHYS">
+            <summary>
+            Discharging physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.FASST">
+            <summary>
+            Fist assistant surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.MDWF">
+            <summary>
+            Midwife
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.NASST">
+            <summary>
+            Nurse assistant
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.PCP">
+            <summary>
+            Primary care physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.PRISURG">
+            <summary>
+            Primary surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.RNDPHYS">
+            <summary>
+            Rounding physician
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.SASST">
+            <summary>
+            Second assistant surgeon
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.SNRS">
+            <summary>
+            Scrub nurse
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.TASST">
+            <summary>
+            Third assistant
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.AUCG">
+            <summary>
+            caregiver information receiver
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.AULR">
+            <summary>
+            Legitimate relationship information receiver
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.AUTM">
+            <summary>
+            Care team information receiver
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationFunction.AUWA">
+            <summary>
+            Work area information receiver
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.BBY">
+            <summary>
+            Baby
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.CALLBCK">
+            <summary>
+            Call back contact
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.CON">
+            <summary>
+            Consultant
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.DEV">
+            <summary>
+            Device
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.DIST">
+            <summary>
+            Distributor
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.ELOC">
+            <summary>
+            Entry location
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.NOT">
+            <summary>
+            Urgent notification
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.VIA">
+            <summary>
+            Via a third party
+            </summary>
+        </member>
+        <member name="F:nhs.itk.hl7v3.utils.CDAParticipationType.WIT">
+            <summary>
+            Witness
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000086_Role">
+            <summary>
+            Constraint for ClinicalDocument.participant
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.TP145205GB01_PersonUniversal">
+            <summary>
+            The template TP145205GB01_PersonUniversal is a universal ROLE template used to hold details of a 'Person'
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.NPFIT_000082_Role">
+            <summary>
+            Constraint for ClinicalDocument.dataEnterer
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal">
+            <summary>
+            Template TP145201GB01 (Patient Universal) used to represent a patient.
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal.SetOrgId(System.String,System.String)">
+            <summary>
+            Set the Organisation Id
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal.SetOrgName(System.String)">
+            <summary>
+            Set the Organisation Name
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal.AddOrgTelecom(nhs.itk.hl7v3.datatypes.TEL_Helper)">
+            <summary>
+            Add a telecommunication method ( i.e. telephone, email, fax etc. )
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal.SetOrgStructuredAddress(nhs.itk.hl7v3.datatypes.AD_Helper)">
+            <summary>
+            Set the address for the organisation
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP145201GB01_PatientUniversal.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialise the template to CDA XML
+            </summary>
+        </member>
+        <member name="T:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL">
+            <summary>
+            Class for the TP146248GB01_ReferenceURL template
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.#ctor">
+            <summary>
+            Template Constructor for the Template
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.SetId(System.Guid)">
+            <summary>
+            Set the GUID for the reference instance
+            </summary>
+            <param name="id">GUID for the instance</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.SetCodeURL">
+            <summary>
+            Set Code using the default values
+            </summary>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.SetCode(System.String,System.String)">
+            <summary>
+            Set code and display name using default OID code system
+            </summary>
+            <param name="codeValue">Code Value</param>
+            <param name="displayNameValue">Display Name</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.SetCode(System.String,System.String,System.String)">
+            <summary>
+            Set code, display name and OID for code system
+            </summary>
+            <param name="codeSystemValue">OID for Code System</param>
+            <param name="codeValue">Code Value</param>
+            <param name="displayNameValue">Display Name</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.SetReferenceURL(System.String)">
+            <summary>
+            Set the Reference URL
+            </summary>
+            <param name="thisURL">URL value</param>
+        </member>
+        <member name="M:nhs.itk.hl7v3.templates.TP146248GB01_ReferenceURL.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Serialise the template to XML
+            </summary>
+            <param name="writer">XML Writer Class</param>
+        </member>
+        <member name="P:nhs.itk.hl7v3.cda.classes.act_CDAParentDocument.Id">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

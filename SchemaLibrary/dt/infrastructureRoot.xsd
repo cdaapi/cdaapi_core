@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="no"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mif="urn:hl7-org:v3/mif" xmlns:v3="urn:hl7-org:v3" xmlns:ex="urn:hl7-org/v3-example" xmlns="urn:hl7-org:v3" targetNamespace="urn:hl7-org:v3" elementFormDefault="qualified">
+	<xs:include schemaLocation="../voc/voc.xsd"/>
+	<xs:include schemaLocation="./datatypes.xsd"/>
+	<xs:complexType name="all.InfrastructureRoot.typeId">
+		<xs:complexContent>
+			<xs:restriction base="II">
+				<xs:attribute name="root" type="uid" use="required"/>
+				<xs:attribute name="extension" type="st" use="required"/>
+			</xs:restriction>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="all.InfrastructureRoot.templateId">
+		<xs:complexContent>
+			<xs:extension base="II">
+				<xs:attribute name="unsorted" type="xs:boolean" default="false"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:group name="InfrastructureRootElements">
+		<xs:sequence>
+			<!--<xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="typeId" type="all.InfrastructureRoot.typeId" minOccurs="0"/>
+			<xs:element name="templateId" type="all.InfrastructureRoot.templateId" minOccurs="0" maxOccurs="unbounded"/>-->
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="InfrastructureRootElementsGroupAll">
+		<xs:sequence>
+			<xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="typeId" type="II" minOccurs="0"/>
+			<xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="InfrastructureRootElementsGroup1">
+		<xs:sequence>
+			<xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="typeId" type="all.InfrastructureRoot.typeId" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="InfrastructureRootAttributes">
+		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
+		<xs:attribute name="updateMode" type="cs_UpdateMode" use="optional"/>
+	</xs:attributeGroup>
+</xs:schema>
