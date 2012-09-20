@@ -1,0 +1,458 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Reflection;
+using System.Xml;
+using System.Xml.XPath;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
+using MARC.Everest.DataTypes;
+
+using nhs.itk.hl7v3.cda.classes;
+using nhs.itk.hl7v3.templates;
+using nhs.itk.hl7v3.datatypes;
+using nhs.itk.hl7v3.rim;
+using nhs.itk.hl7v3.vocabs;
+using nhs.itk.hl7v3.xml;
+using nhs.itk.hl7v3.utils;
+
+namespace nhs.itk.hl7v3.cda
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed class ClinicalDocument_POCD_MT150001UK06 : CDAModel
+    {
+        const string MESSAGE_TYPE = "POCD_MT150001UK06";
+        const bool modelIsCDA = true;
+
+        // Participations (LHS) - These need to be customised for each profile so as to use the correct constraint      
+        private List<p_recipient_000008> informationRecipient;
+        private p_dataEnterer_000016 dataEnterer;
+        private p_authenticator_000024 authenticator;
+        private List<p_author_000007> author;
+        private p_recordTarget_000019 recordTarget;
+        private p_custodian_000014 custodian;
+
+        // CDA Acts (RHS)
+        private List<act_CDAParentDocument> relatedDocument;  // Releated Document.
+       // private List<actRel_DocumentationOf_000050> documentationOf;  // Service Event
+       // private List<actRel_authorization_000051> authorization;  // Consent
+        private actRel_componentOf_000052 componentOf;  // Encompassing Encounter
+        private CdaBody component;  // Document Body
+
+        // Constructor for the CDA model
+        public ClinicalDocument_POCD_MT150001UK06()
+        {
+            base.setupCDADocument();
+            base.MessageType = MESSAGE_TYPE;
+        }
+
+        // Constructor for the CDA model
+        public ClinicalDocument_POCD_MT150001UK06(Guid id)
+        {
+            setupCDADocument();
+            MessageType = MESSAGE_TYPE;
+            Id = id;
+        }
+
+        #region Participation : Record target (i.e. patient)
+        // Method for setting the record target (i.e. the patient)
+        public void SetRecordTarget(NPFIT_000083_Role template)
+        {
+            recordTarget = new p_recordTarget_000083();
+            recordTarget.Role = (TP145201GB01_PatientUniversal)template;
+        }
+        #endregion
+
+        #region Participation : Author
+        // Method for adding authors to the CDA document, a mandatory dateTime needs to be provided for each author.
+        public void AddAuthor(NPFIT_000081_Role template, DateTime timeValue)
+        {
+
+            // If this is the first author to be added then initiate the list of authors.
+            if (author == null)
+            {
+                author = new List<p_author_000081>();
+            }
+
+            p_author_000081 thisAuthor = new p_author_000081();
+            thisAuthor.AuthorTime = new TS(timeValue);
+            thisAuthor.AuthorTime.DateValuePrecision = DatePrecision.Second;
+
+            thisAuthor.Role = template;
+            author.Add(thisAuthor);
+        }
+        #endregion
+
+        #region Participation : Recipient
+        public void AddPrimaryInformationRecipient(NPFIT_000080_Role template)
+        {
+            AddInformationRecipient(template, p_recipient_000080.type.primary);
+        }
+
+        public void AddTrackerInformationRecipient(NPFIT_000080_Role template)
+        {
+            AddInformationRecipient(template, p_recipient_000080.type.tracker);
+        }
+        private void AddInformationRecipient(NPFIT_000080_Role template, p_recipient_000080.type type)
+        {
+            if (informationRecipient == null)
+            {
+                informationRecipient = new List<p_recipient_000080>();
+            }
+
+            p_recipient_000080 thisRecipient = new p_recipient_000080(type);
+            thisRecipient.Role = template;
+
+            informationRecipient.Add(thisRecipient);
+        }
+        #endregion
+
+        #region Participation : Authenticator
+        // Method for adding an 'authenticator to the CDA document, a mandatory dateTime needs to be provided for each author.
+        public void AddAuthenticator(NPFIT_000084_Role template, DateTime timeValue)
+        {
+            authenticator = new p_authenticator_000084();
+            authenticator.AuthenticationTime = new TS(timeValue);
+            authenticator.AuthenticationTime.DateValuePrecision = DatePrecision.Second;
+            authenticator.Role = template;
+        }
+        #endregion
+
+        #region Participation : Custodian
+        // Method for adding a 'custodian' participation to the CDA document
+        public void SetCustodian(NPFIT_000014_Role template)
+        {
+            custodian = new p_custodian_000014();
+            custodian.Role = template;
+        }
+        #endregion
+
+        #region Participation : Data Enterer
+        // Method for adding a 'data enterer' participation to the CDA document
+        public void AddDataEnterer(NPFIT_000082_Role template)
+        {
+            dataEnterer = new p_dataEnterer_000082();
+            dataEnterer.Role = (TP145205GB01_PersonUniversal)template;
+        }
+        #endregion
+
+        #region Act : Related Document
+        public void AddRelatedDocument(act_CDAParentDocument relatedDoc)
+        {
+            if (relatedDocument == null)
+            {
+                relatedDocument = new List<act_CDAParentDocument>();
+            }
+
+            relatedDocument.Add(relatedDoc);
+        }
+        #endregion
+
+        #region Act : EncompassingEncounter
+        public void AddComponentOf(NPFIT_000052_Act template)
+        {
+            componentOf = new actRel_componentOf_000052();
+            componentOf.Act = (TP146228GB01_EncompassingEncounter)template;
+        }
+        #endregion
+
+        #region CDA Body
+        /// <summary>
+        /// Add a non XML body to the CDA document. The supplied file will be BASE64 encoded and inserted in the CDA document.
+        /// </summary>
+        /// <param name="mediaType"></param>
+        /// <param name="filename"></param>
+        public void AddNonXMLBody(string mediaType, string filename)
+        {
+            CdaBody nonXML = new CdaBody(true);
+            nonXML.SetNonXmlBody(mediaType, filename);
+
+            component = nonXML;
+        }
+
+        /// <summary>
+        /// Add a Structured Body to the CDA document
+        /// </summary>
+        public void AddStructuredBodyTemplate(ITextSection structuredTextTemplate)
+        {
+            if (component == null)
+            {
+                component = new CdaBody(true);
+            }
+
+            component.AddTextSection(structuredTextTemplate);
+        }
+
+        /// <summary>
+        /// Add a Structured Body to the CDA document, generate a guid for the id.
+        /// </summary>
+        public void AddStructuredBodyTemplate(Guid Id,ITextSection structuredTextTemplate)
+        {
+            if (component == null)
+            {
+                component = new CdaBody(true);
+            }
+
+            component.Id = Id;
+            component.AddTextSection(structuredTextTemplate);
+        }
+        #endregion
+
+        #region Coded Entry Template
+        public void AddEntryTemplate(ICodedEntry template)
+        {
+            if (component == null)
+            {
+                component = new CdaBody(true);
+            }
+
+            component.AddCodedEntry(template);
+        }
+        #endregion
+
+        #region Xml Serialization Members
+        /// <summary>
+        /// Serialise the CDA document to an XML file
+        /// </summary>
+        /// <param name="fileLocation">filename of the XML file to be created</param>
+        public void CreateXML(string fileLocation)
+        {
+
+            FileInfo tagetInfo = new FileInfo(fileLocation);
+
+            if (tagetInfo.Directory.Exists)
+            {
+                XmlWriterSettings settings = new XmlWriterSettings();
+                settings.Indent = true;
+                settings.IndentChars = ("    ");
+
+                using (XmlWriter writer = XmlWriter.Create(fileLocation, settings))
+                {
+                    writeXmlCommentBlock(writer);
+
+                    writer.WriteStartElement("ClinicalDocument", "urn:hl7-org:v3");
+                    writeXml(writer);
+                    writer.WriteEndElement();
+                    writer.Flush();
+                }
+            }
+            else
+            {
+                ApplicationException exInner = new ApplicationException(tagetInfo.DirectoryName);
+                DirectoryNotFoundException ex = new DirectoryNotFoundException("Target Directory does not exist", exInner);
+                throw ex;
+            }
+        }
+        private void writeXml(XmlWriter writer)
+        {
+            writeXmlParentElements(writer);
+            writeXmlRecordTarget(writer);
+            writeXmlAuthors(writer);
+            writeXmlDataEnterer(writer);
+            writeXmlInformant(writer);
+            writeXmlCustodian(writer);
+            writeXmlInformationRecipient(writer);
+            writeXmlAuthenticator(writer);
+            writeXmlParticipant(writer);
+            writeXmlDocumentationOf(writer);
+            writeXmlRelatedDocument(writer);
+            writeXmlAuthorization(writer);
+            writeXmlComponentOf(writer);
+            writeXmlComponent(writer);
+        }
+
+        private void writeXmlRecordTarget(XmlWriter writer)
+        {
+
+            if (recordTarget != null)
+            {
+                writer.WriteStartElement("recordTarget");
+                recordTarget.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlComponent(XmlWriter writer)
+        {
+            if (component != null)
+            {
+                writer.WriteStartElement("component");
+                component.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlComponentOf(XmlWriter writer)
+        {
+            if (componentOf != null)
+            {
+                writer.WriteStartElement("componentOf");
+                componentOf.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlDocumentationOf(XmlWriter writer)
+        {
+            if ((documentationOf != null) && (documentationOf.Count > 0))
+            {
+                foreach (actRel_DocumentationOf_000050 item in documentationOf)
+                {
+                    writer.WriteStartElement("documentationOf");
+                    item.WriteXml(writer);
+                    writer.WriteEndElement();
+                }
+            }
+        }
+        private void writeXmlAuthors(XmlWriter writer)
+        {
+            if ((author != null) && (author.Count > 0))
+            {
+                foreach (p_author_000081 item in author)
+                {
+                    if (item != null)
+                    {
+                        writer.WriteStartElement("author");
+                        item.WriteXml(writer);
+                        writer.WriteEndElement();
+                    }
+                }
+            }
+        }
+        private void writeXmlRelatedDocument(XmlWriter writer)
+        {
+            if ((relatedDocument != null) && (relatedDocument.Count > 0))
+            {
+
+                foreach (act_CDAParentDocument item in relatedDocument)
+                {
+                    if (item != null)
+                    {
+                        item.WriteXml(writer);
+                    }
+                }
+
+            }
+        }
+        private void writeXmlParticipant(XmlWriter writer)
+        {
+            if ((participant != null) && (participant.Count > 0))
+            {
+                XmlWriterSettings tempXMLSettings = new XmlWriterSettings();
+                tempXMLSettings.OmitXmlDeclaration = true;
+
+
+                foreach (p_participation_000086 item in participant)
+                {
+                    if (item != null)
+                    {
+                        StringBuilder tempXML = new StringBuilder();
+                        XmlWriter tempWriter = XmlWriter.Create(tempXML, tempXMLSettings);
+
+                        tempWriter.WriteStartElement("root","urn:hl7-org:v3");                     
+                        tempWriter.WriteAttributeString("xmlns", "npfitlc", null, "NPFIT:HL7:Localisation");
+                        tempWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
+                        tempWriter.WriteStartElement("participant");
+                        item.WriteXml(tempWriter);
+                        tempWriter.WriteEndElement();
+                        tempWriter.WriteEndElement();
+                        tempWriter.Flush();
+
+                        XmlDocument doc = new XmlDocument();
+
+                        //string editedXML = tempXML.ToString().Replace("relatedPerson", "associatedPerson");
+                        doc.LoadXml(tempXML.ToString().Replace("relatedPerson", "associatedPerson"));
+
+
+
+                        XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
+                        nsmgr.AddNamespace("x", doc.DocumentElement.NamespaceURI);
+                        XmlNodeList nodes = doc.SelectNodes(@"/x:root/x:participant", nsmgr);
+
+                        foreach (XmlNode xitem in nodes)
+                        {
+                            xitem.WriteTo(writer);
+                        }
+                    }
+                }
+
+
+
+            }
+        }
+        private void writeXmlDataEnterer(XmlWriter writer)
+        {
+            if (dataEnterer != null)
+            {
+                writer.WriteStartElement("dataEnterer");
+                dataEnterer.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlAuthenticator(XmlWriter writer)
+        {
+            if (authenticator != null)
+            {
+                writer.WriteStartElement("authenticator");
+                authenticator.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlAuthorization(XmlWriter writer)
+        {
+            if ((authorization != null) && (authorization.Count > 0))
+            {
+                foreach (actRel_authorization_000051 item in authorization)
+                {
+                    writer.WriteStartElement("authorization");
+                    item.WriteXml(writer);
+                    writer.WriteEndElement();
+                }
+            }
+        }
+        private void writeXmlInformant(XmlWriter writer)
+        {
+            if ((informant != null) && (informant.Count > 0))
+            {
+                foreach (p_informant_000085 item in informant)
+                {
+                    if (item != null)
+                    {
+                        writer.WriteStartElement("informant");
+                        item.WriteXml(writer);
+                        writer.WriteEndElement();
+                    }
+                }
+            }
+        }
+        private void writeXmlCustodian(XmlWriter writer)
+        {
+            if (custodian != null)
+            {
+                writer.WriteStartElement("custodian");
+                custodian.WriteXml(writer);
+                writer.WriteEndElement();
+            }
+        }
+        private void writeXmlInformationRecipient(XmlWriter writer)
+        {
+            if ((informationRecipient != null) && (informationRecipient.Count > 0))
+            {
+
+                foreach (p_recipient_000080 item in informationRecipient)
+                {
+                    if (item != null)
+                    {
+                        writer.WriteStartElement("informationRecipient");
+                        item.WriteXml(writer);
+                        writer.WriteEndElement();
+                    }
+                }
+            }
+        }
+
+        #endregion
+    }
+}
