@@ -14,7 +14,7 @@ using nhs.itk.hl7v3.oids;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145200GB01_AuthorPersonUniversal : NPFIT_000081_Role
+    public class TP145200GB01_AuthorPersonUniversal : NPFIT_000081_Role,NPFIT_000007_Role
     {
         const string TEMPLATEID = "COCD_TP145200GB01";
         const string TEMPLATETEXT = "AssignedAuthor";

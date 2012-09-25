@@ -13,61 +13,46 @@ using MARC.Everest.DataTypes;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145203GB03_RecipientOrganizationUniversal : NPFIT_000080_Role, NPFIT_000008_Role
+    public class TP145017UK03_RecipientOrganization : NPFIT_000008_Role
     {
-        const string TEMPLATEID = "COCD_TP145203GB03";
+        const string TEMPLATEID = "COCD_TP145017UK03";
         const string TEMPLATETEXT = "IntendedRecipient";
+
         internal r_intendedRecipient RecipientRole;
 
-        public TP145203GB03_RecipientOrganizationUniversal()
+        public TP145017UK03_RecipientOrganization()
             : base()
         {
             RecipientRole = new r_intendedRecipient("ASSIGNED");
             RecipientRole.templateId = TEMPLATEID;
             RecipientRole.templateText = TEMPLATETEXT;
 
-            RecipientRole.InitOrganisation();
         }
-        #region ROLE :: Intended Recipient
-        public void AddTelecom(TEL_Helper telecon)
-        {
-            RecipientRole.AddTelecom(telecon.TEL);
-        }
-        public void SetAddress(AD_Helper addr)
-        {
-            RecipientRole.SetStructuredAddress(addr.AD);
-        }
-        #endregion
 
-        #region ENTITY :: Organisation
+        #region Entity :: Organisation
         public void SetOrgSDSSiteCode(string code, string name)
         {
+            RecipientRole.InitOrganisation();
             RecipientRole.representedOrganisation.SetId(OIDStore.OIDOdsSiteCode, code);
             RecipientRole.representedOrganisation.SetName(name);
         }
 
         public void SetOrgSDSOrgCode(string code, string name)
         {
+            RecipientRole.InitOrganisation();
             RecipientRole.representedOrganisation.SetId(OIDStore.OIDOdsOrganisationCode, code);
             RecipientRole.representedOrganisation.SetName(name);
         }
-        public void SetIndustryCode(string code, string displayName)
-        {
-            RecipientRole.InitOrganisation();
 
-            RecipientRole.representedOrganisation.StandardIndustyClassCode
-            = new CD<string>(code, OIDStore.OIDCDAOrganizationType, null, null, displayName, null);
-
-        }
         #endregion
-        
-        #region XML Serialization Members
+
+        #region XML Serialization Members }
         public void WriteXml(XmlWriter writer)
         {
             RecipientRole.WriteXml(writer);
         }
         #endregion
-        
+
         #region NPFIT_000000_Role Members
         public string getTemplateID() { return TEMPLATEID; }
         public string getTemplateText() { return TEMPLATETEXT; }

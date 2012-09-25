@@ -39,8 +39,6 @@ namespace nhs.itk.hl7v3.cda
 
         // CDA Acts (RHS)
         private List<act_CDAParentDocument> relatedDocument;  // Releated Document.
-       // private List<actRel_DocumentationOf_000050> documentationOf;  // Service Event
-       // private List<actRel_authorization_000051> authorization;  // Consent
         private actRel_componentOf_000052 componentOf;  // Encompassing Encounter
         private CdaBody component;  // Document Body
 
@@ -59,27 +57,27 @@ namespace nhs.itk.hl7v3.cda
             Id = id;
         }
 
-        #region Participation : Record target (i.e. patient)
+        #region Participation : Record target (i.e. patient) 000019
         // Method for setting the record target (i.e. the patient)
-        public void SetRecordTarget(NPFIT_000083_Role template)
+        public void SetRecordTarget(NPFIT_000019_Role template)
         {
-            recordTarget = new p_recordTarget_000083();
-            recordTarget.Role = (TP145201GB01_PatientUniversal)template;
+            recordTarget = new p_recordTarget_000019();
+            recordTarget.Role = template;
         }
         #endregion
 
-        #region Participation : Author
+        #region Participation : Author 000007
         // Method for adding authors to the CDA document, a mandatory dateTime needs to be provided for each author.
-        public void AddAuthor(NPFIT_000081_Role template, DateTime timeValue)
+        public void AddAuthor(NPFIT_000007_Role template, DateTime timeValue)
         {
 
             // If this is the first author to be added then initiate the list of authors.
             if (author == null)
             {
-                author = new List<p_author_000081>();
+                author = new List<p_author_000007>();
             }
 
-            p_author_000081 thisAuthor = new p_author_000081();
+            p_author_000007 thisAuthor = new p_author_000007();
             thisAuthor.AuthorTime = new TS(timeValue);
             thisAuthor.AuthorTime.DateValuePrecision = DatePrecision.Second;
 
@@ -88,42 +86,42 @@ namespace nhs.itk.hl7v3.cda
         }
         #endregion
 
-        #region Participation : Recipient
-        public void AddPrimaryInformationRecipient(NPFIT_000080_Role template)
+        #region Participation : Recipient 000008
+        public void AddPrimaryInformationRecipient(NPFIT_000008_Role template)
         {
-            AddInformationRecipient(template, p_recipient_000080.type.primary);
+            AddInformationRecipient(template, p_recipient_000008.type.primary);
         }
 
-        public void AddTrackerInformationRecipient(NPFIT_000080_Role template)
+        public void AddTrackerInformationRecipient(NPFIT_000008_Role template)
         {
-            AddInformationRecipient(template, p_recipient_000080.type.tracker);
+            AddInformationRecipient(template, p_recipient_000008.type.tracker);
         }
-        private void AddInformationRecipient(NPFIT_000080_Role template, p_recipient_000080.type type)
+        private void AddInformationRecipient(NPFIT_000008_Role template, p_recipient_000008.type type)
         {
             if (informationRecipient == null)
             {
-                informationRecipient = new List<p_recipient_000080>();
+                informationRecipient = new List<p_recipient_000008>();
             }
 
-            p_recipient_000080 thisRecipient = new p_recipient_000080(type);
+            p_recipient_000008 thisRecipient = new p_recipient_000008(type);
             thisRecipient.Role = template;
 
             informationRecipient.Add(thisRecipient);
         }
         #endregion
 
-        #region Participation : Authenticator
+        #region Participation : Authenticator 000024
         // Method for adding an 'authenticator to the CDA document, a mandatory dateTime needs to be provided for each author.
-        public void AddAuthenticator(NPFIT_000084_Role template, DateTime timeValue)
+        public void AddAuthenticator(NPFIT_000024_Role template, DateTime timeValue)
         {
-            authenticator = new p_authenticator_000084();
+            authenticator = new p_authenticator_000024();
             authenticator.AuthenticationTime = new TS(timeValue);
             authenticator.AuthenticationTime.DateValuePrecision = DatePrecision.Second;
             authenticator.Role = template;
         }
         #endregion
 
-        #region Participation : Custodian
+        #region Participation : Custodian 000014
         // Method for adding a 'custodian' participation to the CDA document
         public void SetCustodian(NPFIT_000014_Role template)
         {
@@ -132,12 +130,12 @@ namespace nhs.itk.hl7v3.cda
         }
         #endregion
 
-        #region Participation : Data Enterer
+        #region Participation : Data Enterer 000016
         // Method for adding a 'data enterer' participation to the CDA document
-        public void AddDataEnterer(NPFIT_000082_Role template)
+        public void AddDataEnterer(NPFIT_000016_Role template)
         {
-            dataEnterer = new p_dataEnterer_000082();
-            dataEnterer.Role = (TP145205GB01_PersonUniversal)template;
+            dataEnterer = new p_dataEnterer_000016();
+            dataEnterer.Role = template;
         }
         #endregion
 
@@ -254,14 +252,13 @@ namespace nhs.itk.hl7v3.cda
             writeXmlRecordTarget(writer);
             writeXmlAuthors(writer);
             writeXmlDataEnterer(writer);
-            writeXmlInformant(writer);
+            
             writeXmlCustodian(writer);
             writeXmlInformationRecipient(writer);
             writeXmlAuthenticator(writer);
-            writeXmlParticipant(writer);
-            writeXmlDocumentationOf(writer);
+
             writeXmlRelatedDocument(writer);
-            writeXmlAuthorization(writer);
+
             writeXmlComponentOf(writer);
             writeXmlComponent(writer);
         }
@@ -294,23 +291,12 @@ namespace nhs.itk.hl7v3.cda
                 writer.WriteEndElement();
             }
         }
-        private void writeXmlDocumentationOf(XmlWriter writer)
-        {
-            if ((documentationOf != null) && (documentationOf.Count > 0))
-            {
-                foreach (actRel_DocumentationOf_000050 item in documentationOf)
-                {
-                    writer.WriteStartElement("documentationOf");
-                    item.WriteXml(writer);
-                    writer.WriteEndElement();
-                }
-            }
-        }
+
         private void writeXmlAuthors(XmlWriter writer)
         {
             if ((author != null) && (author.Count > 0))
             {
-                foreach (p_author_000081 item in author)
+                foreach (p_author_000007 item in author)
                 {
                     if (item != null)
                     {
@@ -336,52 +322,7 @@ namespace nhs.itk.hl7v3.cda
 
             }
         }
-        private void writeXmlParticipant(XmlWriter writer)
-        {
-            if ((participant != null) && (participant.Count > 0))
-            {
-                XmlWriterSettings tempXMLSettings = new XmlWriterSettings();
-                tempXMLSettings.OmitXmlDeclaration = true;
 
-
-                foreach (p_participation_000086 item in participant)
-                {
-                    if (item != null)
-                    {
-                        StringBuilder tempXML = new StringBuilder();
-                        XmlWriter tempWriter = XmlWriter.Create(tempXML, tempXMLSettings);
-
-                        tempWriter.WriteStartElement("root","urn:hl7-org:v3");                     
-                        tempWriter.WriteAttributeString("xmlns", "npfitlc", null, "NPFIT:HL7:Localisation");
-                        tempWriter.WriteAttributeString("xmlns", "xsi", null, "http://www.w3.org/2001/XMLSchema-instance");
-                        tempWriter.WriteStartElement("participant");
-                        item.WriteXml(tempWriter);
-                        tempWriter.WriteEndElement();
-                        tempWriter.WriteEndElement();
-                        tempWriter.Flush();
-
-                        XmlDocument doc = new XmlDocument();
-
-                        //string editedXML = tempXML.ToString().Replace("relatedPerson", "associatedPerson");
-                        doc.LoadXml(tempXML.ToString().Replace("relatedPerson", "associatedPerson"));
-
-
-
-                        XmlNamespaceManager nsmgr = new XmlNamespaceManager(doc.NameTable);
-                        nsmgr.AddNamespace("x", doc.DocumentElement.NamespaceURI);
-                        XmlNodeList nodes = doc.SelectNodes(@"/x:root/x:participant", nsmgr);
-
-                        foreach (XmlNode xitem in nodes)
-                        {
-                            xitem.WriteTo(writer);
-                        }
-                    }
-                }
-
-
-
-            }
-        }
         private void writeXmlDataEnterer(XmlWriter writer)
         {
             if (dataEnterer != null)
@@ -400,33 +341,8 @@ namespace nhs.itk.hl7v3.cda
                 writer.WriteEndElement();
             }
         }
-        private void writeXmlAuthorization(XmlWriter writer)
-        {
-            if ((authorization != null) && (authorization.Count > 0))
-            {
-                foreach (actRel_authorization_000051 item in authorization)
-                {
-                    writer.WriteStartElement("authorization");
-                    item.WriteXml(writer);
-                    writer.WriteEndElement();
-                }
-            }
-        }
-        private void writeXmlInformant(XmlWriter writer)
-        {
-            if ((informant != null) && (informant.Count > 0))
-            {
-                foreach (p_informant_000085 item in informant)
-                {
-                    if (item != null)
-                    {
-                        writer.WriteStartElement("informant");
-                        item.WriteXml(writer);
-                        writer.WriteEndElement();
-                    }
-                }
-            }
-        }
+
+
         private void writeXmlCustodian(XmlWriter writer)
         {
             if (custodian != null)
@@ -441,7 +357,7 @@ namespace nhs.itk.hl7v3.cda
             if ((informationRecipient != null) && (informationRecipient.Count > 0))
             {
 
-                foreach (p_recipient_000080 item in informationRecipient)
+                foreach (p_recipient_000008 item in informationRecipient)
                 {
                     if (item != null)
                     {

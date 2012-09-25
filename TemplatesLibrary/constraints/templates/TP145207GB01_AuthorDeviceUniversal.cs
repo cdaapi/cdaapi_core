@@ -12,7 +12,7 @@ using MARC.Everest.DataTypes;
 using nhs.itk.hl7v3.oids;
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145207GB01_AuthorDeviceUniversal : NPFIT_000081_Role
+    public class TP145207GB01_AuthorDeviceUniversal : NPFIT_000081_Role, NPFIT_000007_Role
     {
         const string TEMPLATEID = "COCD_TP145207GB01";
         const string TEMPLATETEXT = "AssignedAuthorDevice";

@@ -22,12 +22,12 @@ namespace nhs.itk.hl7v3.cda.classes
         internal r_patientRole()
             : base()
         {
-            InitPatient();
+          //  InitPatient(); // Do not automatically initiate the patient class, it might not be used.
         }
         internal r_patientRole(string classCode)
             : base(classCode)
         {
-            InitPatient();
+          //  InitPatient(); // Do not automatically initiate the patient class, it might not be used.
         }
 
         internal new void AddId(string root, string extension)
@@ -67,8 +67,11 @@ namespace nhs.itk.hl7v3.cda.classes
             its.TemplateSignpost(templateId + "#" + templateText, writer);
             writeXML(writer);
 
-            PatientEntity.templateid = templateId;
-            PatientEntity.WriteXml(writer);
+            if (PatientEntity != null)
+            {
+                PatientEntity.templateid = templateId;
+                PatientEntity.WriteXml(writer);
+            }
 
             if (OrganisationEntity != null)
             {

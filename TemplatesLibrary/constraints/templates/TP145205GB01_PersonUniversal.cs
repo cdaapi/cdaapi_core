@@ -15,7 +15,7 @@ namespace nhs.itk.hl7v3.templates
     /// <summary>
     /// The template TP145205GB01_PersonUniversal is a universal ROLE template used to hold details of a 'Person'
     /// </summary>
-    public class TP145205GB01_PersonUniversal : NPFIT_000082_Role, NPFIT_000084_Role
+    public class TP145205GB01_PersonUniversal : NPFIT_000082_Role, NPFIT_000084_Role, NPFIT_000016_Role, NPFIT_000024_Role
     {
         const string TEMPLATEID = "COCD_TP145205GB01";
         const string TEMPLATETEXT = "AssignedEntity";

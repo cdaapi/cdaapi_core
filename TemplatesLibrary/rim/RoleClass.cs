@@ -45,6 +45,9 @@ namespace nhs.itk.hl7v3.rim
 
             switch (flavorCode)
             {
+                case "NA":
+                    flavorValue = NullFlavor.Masked;
+                    break;
                 case "NI":
                     flavorValue = NullFlavor.NoInformation;
                     break;
@@ -192,6 +195,11 @@ namespace nhs.itk.hl7v3.rim
                     break;
             }
             code.NullFlavor = new CS<NullFlavor>(flavorValue);
+        }
+        internal void SetCodeNull(NullFlavor nullType)
+        {
+            recipientRoleCode = new CV<string>();
+            recipientRoleCode.NullFlavor = nullType;
         }
         #endregion
 

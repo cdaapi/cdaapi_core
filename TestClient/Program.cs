@@ -15,10 +15,10 @@ namespace Example01Dummy
 {
     class Program
     {
-        static void DummyMain(string[] args)
+        static void Main(string[] args)
         {
 
-            ClinicalDocument_POCD_MT010011GB02 doc = new ClinicalDocument_POCD_MT010011GB02();
+            ClinicalDocument_POCD_MT150001UK06 doc = new ClinicalDocument_POCD_MT150001UK06();
 
             // Initialise the CDA document.
             #region set up entry class
@@ -26,9 +26,8 @@ namespace Example01Dummy
             doc.Config.SchemaLocation = @"../../../SchemaLibrary/Schemas/POCD_MT000002UK01.xsd";
 
             // Create the document
-            //doc.SetDocumentCodeSnomedCTComposition("25581000000101", "310061009", "Discharge from Gynaecology Service");
-            doc.SetDocumentCodeLocal("DISCH001", "Emergency Care Discharge", "1.2.3.4.5.6.1212.1234.12");
-            doc.Title = "Discharge Report from Gynaecology Services Department";
+            doc.SetDocumentCodeSnomedCT("163391000000107", "Discharge from Inpatient Care");
+            doc.Title = "Discharge from Inpatient Care";
             doc.SetEffectiveTime(DateTime.Parse("2011/05/19 20:00:42"));
             doc.ConfidentialityCode = CDAConfidentialityCode.Normal;
             doc.Id = new Guid("A709A442-3CF4-476E-8377-376500E829C9");
@@ -38,13 +37,21 @@ namespace Example01Dummy
 
             // Create and add the "Record Target" participation - this is the details of the individual that the CDA
             // document is for ( i.e. the patient ).
+
+
+            #region Add recordTarget :: TP145020UK03_Patient
+            TP145020UK03_Patient rt00 = new TP145020UK03_Patient();
+            rt00.AddPatientIdNhsTraced("1234567891");
+            #endregion
+            doc.SetRecordTarget(rt00);
+          
             #region Add recordTarget :: TP145201GB01_PatientUniversal
-            TP145201GB01_PatientUniversal rt = new TP145201GB01_PatientUniversal();
+            TP145201GB01_PatientUniversal rt01 = new TP145201GB01_PatientUniversal();
 
-            rt.AddPatientIdLocalNumber("K12345", "RA9:SOUTH DEVON HEALTHCARE NHS FOUNDATION TRUST");
-            rt.AddPatientIdNhsTraced("1234567891");
+            rt01.AddPatientIdLocalNumber("K12345", "RA9:SOUTH DEVON HEALTHCARE NHS FOUNDATION TRUST");
+            rt01.AddPatientIdNhsTraced("1234567891");
 
-            rt.AddStructuredAddress(
+            rt01.AddStructuredAddress(
                                 new AD_Helper
                                 {
                                     StreetLine1 = "99a County Lodge",
@@ -60,7 +67,7 @@ namespace Example01Dummy
                                 }
                        );
 
-            rt.AddStructuredAddress(
+            rt01.AddStructuredAddress(
                      new AD_Helper
                      {
                          StreetLine1 = "Hightown Retirement Home",
@@ -72,7 +79,7 @@ namespace Example01Dummy
                      }
             );
 
-            rt.AddTelecom(
+            rt01.AddTelecom(
                 new TEL_Helper
                 {
                     Use = TEL_TelecomUse.Home,
@@ -81,7 +88,7 @@ namespace Example01Dummy
                 }
             );
 
-            rt.AddTelecom(
+            rt01.AddTelecom(
                  new TEL_Helper
                  {
                      Use = TEL_TelecomUse.None,
@@ -90,7 +97,7 @@ namespace Example01Dummy
                  }
              );
 
-            rt.AddTelecom(
+            rt01.AddTelecom(
                 new TEL_Helper
                 {
                     Use = TEL_TelecomUse.VacationHome,
@@ -99,7 +106,7 @@ namespace Example01Dummy
                 }
             );
 
-            rt.AddTelecom(
+            rt01.AddTelecom(
                 new TEL_Helper
                 {
                     Use = TEL_TelecomUse.Home,
@@ -108,8 +115,8 @@ namespace Example01Dummy
                 }
             );
 
-            rt.SetPatientBirthTime(new DateTime(1949, 1, 1), TS_Precision.Day);
-            rt.SetPatientGenderCode(TP145201GB01_PatientUniversal.administrativeGender.Male);
+            rt01.SetPatientBirthTime(new DateTime(1949, 1, 1), TS_Precision.Day);
+            rt01.SetPatientGenderCode(TP145201GB01_PatientUniversal.administrativeGender.Male);
 
 
             PN_Helper patient_name = new PN_Helper()
@@ -120,12 +127,12 @@ namespace Example01Dummy
                 Use = PN_NameUse.Preferred
             };
 
-            rt.SetPatientName(patient_name);
-            rt.SetPatientLanguageCode("en");
+            rt01.SetPatientName(patient_name);
+            rt01.SetPatientLanguageCode("en");
 
-            rt.SetOrgSDSOrgCode("V396F", "Medway Medical Practice");
+            rt01.SetOrgSDSOrgCode("V396F", "Medway Medical Practice");
 
-            rt.AddOrgTelecom(
+            rt01.AddOrgTelecom(
                 new TEL_Helper
                 {
                     Use = TEL_TelecomUse.Home,
@@ -133,7 +140,7 @@ namespace Example01Dummy
                     URI = "mark.smith@emailfree.co.uk"
                 }
             );
-            rt.SetOrgStructuredAddress(
+            rt01.SetOrgStructuredAddress(
                      new AD_Helper
                      {
                          StreetLine1 = "Springer Street",
@@ -142,9 +149,8 @@ namespace Example01Dummy
                          Use = AD_AddressUse.WorkPlace
                      }
                      );
-
-            doc.SetRecordTarget(rt);
             #endregion
+            doc.SetRecordTarget(rt01);
 
 
             //
@@ -214,35 +220,6 @@ namespace Example01Dummy
             doc.AddAuthor(authorDevice, new DateTime(2009, 05, 18, 00, 01, 0, 0));
             #endregion
 
-            #region Add author :: TP145212GB02_WorkgroupUniversal
-            TP145212GB02_WorkgroupUniversal authorWG = new TP145212GB02_WorkgroupUniversal();
-            authorWG.SetId("1.2.826.0.1285.0.2.0.109", "102016309999");
-            authorWG.SetCode("ABC123", "Care Team");
-
-            authorWG.AddTelecom(
-                new TEL_Helper
-                {
-                    URI = "abc@domain.com",
-                    Type = TEL_TelecomType.Email,
-                    Use = TEL_TelecomUse.VacationHome
-                }
-            );
-
-            authorWG.SetOrgSDSOrgCode("V396AA", "East Cheshire NHS Trust");
-
-            PN_Helper authorWG_name = new PN_Helper()
-            {
-                Prefix = "Mrs",
-                Given1 = "Jessica",
-                Given2 = "Jane",
-                Family = "Brown",
-                Suffix = "OBE"
-            };
-            authorWG.SetPersonName(authorWG_name);
-
-            doc.AddAuthor(authorWG, DateTime.Parse("2010/10/20 15:15:00"));
-            #endregion
-
             #region Add author :: TP145208GB01_AuthorNonNamedPersonUniversal
             TP145208GB01_AuthorNonNamedPersonUniversal authorNNP = new TP145208GB01_AuthorNonNamedPersonUniversal();
 
@@ -259,6 +236,20 @@ namespace Example01Dummy
             // Add the data enterer
             //
             #region Add dataEnterer
+            TP145004UK03_EntitySDS de0 = new TP145004UK03_EntitySDS();
+            de0.SetSDSId("102016305984", "102016307980");
+            de0.SetRecipientJobRoleCodeSDS("14587","Administrative Assistance");
+
+            de0.SetPersonName(
+                new PN_Helper()
+                    {
+                        Given1 = "Claire",
+                        Family = "Osmund"
+                    }
+            );
+
+            doc.AddDataEnterer(de0);
+
             TP145205GB01_PersonUniversal de = new TP145205GB01_PersonUniversal();
             de.AddId("2.16.840.1.113883.2.1.3.2.4.18.24", "100");
 
@@ -270,47 +261,7 @@ namespace Example01Dummy
 
             de.SetPersonName(this_name);
 
-            doc.AddDataEnterer(de);
-            #endregion
-
-            //
-            // Add the data informant
-            //
-            #region Add informant
-            TP145007UK03_RelatedEntity informant = new TP145007UK03_RelatedEntity();
-            informant.SetPersonRelationTypeCode("01", "Spouse");
-
-            informant.SetStructuredAddress(
-                  new AD_Helper
-                  {
-                      StreetLine1 = "The Laurels",
-                      StreetLine2 = "Pleasant Village",
-                      StreetLine3 = "Niceplace",
-                      City = "LovelyTown",
-                      Postcode = "AA22 9LJ",
-                      Use = AD_AddressUse.HomeAddress
-                  }
-             );
-
-            informant.SetPersonName(
-                 new PN_Helper
-                 {
-                     Prefix = "Miss",
-                     Given1 = "Abigail",
-                     Family = "Anderson",
-                     Use = PN_NameUse.None
-                 }
-            );
-
-            informant.SetTelecom(
-                new TEL_Helper
-                {
-                    Type = TEL_TelecomType.Email,
-                    Use = TEL_TelecomUse.Home,
-                    URI = "email@domain.com"
-                }
-            );
-            doc.AddInformant(informant);
+            //doc.AddDataEnterer(de);
             #endregion
 
             //
@@ -326,6 +277,25 @@ namespace Example01Dummy
             // Add the recipients of the document ( there are two in this example )
             //
             #region Add Information Recipient(s)
+            TP145021UK05_RecipientEntitySDS recipient0 = new TP145021UK05_RecipientEntitySDS();
+            recipient0.SetSDSId("aaa", "bbb");
+            recipient0.SetRecipientJobRoleCodeNull();
+            recipient0.SetPersonName(
+                        new PN_Helper()
+                        {
+                            Prefix = "Mr",
+                            Given1 = "Terence",
+                            Family = "Hall"
+                        }
+                );
+
+            recipient0.SetOrgSDSOrgCode("V396A", "Medway PCT");
+            doc.AddPrimaryInformationRecipient(recipient0);
+
+            TP145017UK03_RecipientOrganization recipient00 = new TP145017UK03_RecipientOrganization();
+             recipient00.SetOrgSDSOrgCode("V396A", "Medway PCT");
+            doc.AddPrimaryInformationRecipient(recipient00);
+
             #region TP145202GB01
             TP145202GB01_RecipientPersonUniversal recipient1 = new TP145202GB01_RecipientPersonUniversal();
 
@@ -351,7 +321,7 @@ namespace Example01Dummy
 
             recipient1.SetOrgSDSOrgCode("V396A", "Medway PCT");
 
-            doc.AddPrimaryInformationRecipient(recipient1);
+           doc.AddPrimaryInformationRecipient(recipient1);
             #endregion
 
             #region TP145202GB02
@@ -388,7 +358,7 @@ namespace Example01Dummy
 
             recipient2.SetOrgSDSSiteCode("W123A", "Medway Medical Practice");
 
-            doc.AddTrackerInformationRecipient(recipient2);
+           doc.AddTrackerInformationRecipient(recipient2);
             #endregion
 
             #region TP145203GB02
@@ -454,14 +424,6 @@ namespace Example01Dummy
             doc.AddPrimaryInformationRecipient(recipient4);
             #endregion
 
-            #region TP145204GB02
-            TP145204GB02_RecipientWorkgroupUniversal recipient5 = new TP145204GB02_RecipientWorkgroupUniversal();
-
-
-
-
-            #endregion
-
             #endregion
 
             //
@@ -477,168 +439,7 @@ namespace Example01Dummy
                 Family = "Berresford"
             };
             authenticator.SetPersonName(this_auth_name);
-            doc.AddAuthenticator(authenticator, new DateTime(2011, 05, 19, 20, 15, 0, 0));
-            #endregion
-
-            //
-            // Add extra participations
-            //
-            #region Add participant
-
-            TP145214GB01_DocumentParticipantUniversal participant = new TP145214GB01_DocumentParticipantUniversal(TP145214GB01_DocumentParticipantUniversal.ClassCode.Assigned);
-
-            participant.AddId("2.16.840.1.113883.2.1.3.2.4.18.24", "000000000");
-            participant.SetOrgSDSOrgCode("V396AA", "Medway PCT");
-
-
-
-            participant.SetPersonName(
-                new PN_Helper
-                {
-                    UnstructuredName = "Bill Lydon"
-                }
-            );
-
-            doc.AddParticipant(participant, CDAParticipationType.WIT, CDAParticipationFunction.ADMPHYS);
-
-            TP145007UK03_RelatedEntity template_participant2 = new TP145007UK03_RelatedEntity();
-
-            // Set the person relationship type for the participant
-            template_participant2.SetPersonRelationTypeCode("01", "Spouse");
-
-            // Set the name of the participant
-            template_participant2.SetPersonName(
-                new PN_Helper
-                {
-                    UnstructuredName = "Hector Maynard"
-                }
-            );
-
-            // Add the participant template to the CDA document, specifying type of participation.
-            doc.AddParticipant(template_participant2, CDAParticipationType.CALLBCK);
-            #endregion
-
-            // 
-            // Add authrozation/consent
-            //
-            #region Add authrozation/consent
-
-
-            TP146226GB02_Consent auth = new TP146226GB02_Consent();
-            auth.AddId(Guid.NewGuid());
-            auth.SetCode(OIDStore.OIDCodeSystemSnomedCT, "319951000000105", "consent given to share patient data with specified third party");
-            doc.AddAuthorization(auth);
-
-            TP146226GB02_Consent auth2 = new TP146226GB02_Consent();
-            auth2.AddId("AA234KL", "XX00:ABC NHS TRUST");
-            auth2.SetCodeSnomedCT("319951000000105", "consent given to share patient data with specified third party");
-            doc.AddAuthorization(auth2);
-            #endregion
-
-            // 
-            // Add a Service Event
-            //
-            #region Add a service event
-
-            #region #1
-            TP146227GB02_ServiceEvent template_serviceEvent = new TP146227GB02_ServiceEvent(TP146227GB02_ServiceEvent.ActCode.PROC);
-            // Add the GUID id for the service event.
-            template_serviceEvent.AddId(new Guid("8371D2F1-123F-4A14-A1AC-C6C8023103CF"));
-
-            // Add a code ( SNOMED ) for the type of service event being described.
-            template_serviceEvent.SetCodeSnomedCT("73761001", "colonoscopy");
-
-            // Add a timespan for the service event.
-            template_serviceEvent.SetEffectiveTime(
-                new IVLTS_Helper
-                {
-                    Low = DateTime.Parse("2011/05/19 20:00"),
-                    LowPrecision = TS_Precision.Minute,
-                    High = DateTime.Parse("2011/05/19 20:45"),
-                    HighPrecision = TS_Precision.Minute
-                }
-            );
-
-            // Add a 'performer' using template :: TP145210GB01_PersonWithOrganizationUniversal
-            TP145210GB01_PersonWithOrganizationUniversal template_serviceEventPerformer1
-                = new TP145210GB01_PersonWithOrganizationUniversal();
-
-            // No id available so use a NULL
-            template_serviceEventPerformer1.SetIdNull();
-
-            // Add the performer's name
-            template_serviceEventPerformer1.SetPersonName(
-                new PN_Helper
-                {
-                    Given1 = "Joe",
-                    Family = "Bloggs"
-                }
-            );
-
-            // Set the performer's organisation 
-            template_serviceEventPerformer1.SetOrgSDSOrgCode("8785675885765767", "xx organisation");
-
-            // Add the performer to the service event template
-            // Note : This is very clunky, needs to be fixed in a future release.
-            template_serviceEvent.AddPerformer(
-                template_serviceEventPerformer1,
-                nhs.itk.hl7v3.cda.classes.p_performer_000091.serviceEventPerformer.PRF,
-                null
-            );
-
-            #endregion
-            // Add the service event template to the CDA document.
-            doc.AddDocumentationOf(template_serviceEvent);
-
-            #region #2
-
-            TP146227GB02_ServiceEvent se = new TP146227GB02_ServiceEvent(TP146227GB02_ServiceEvent.ActCode.PROC);
-            se.AddId(new Guid("8371D2F1-123F-4A14-A1AC-C6C8023103CF"));
-            se.SetCode(OIDStore.OIDCodeSystemSnomedCT, "73761001", "colonoscopy");
-
-            se.SetEffectiveTime(
-                new IVLTS_Helper
-                {
-                    Low = DateTime.Parse("2011/03/12 09:00"),
-                    LowPrecision = TS_Precision.Minute,
-                    High = DateTime.Parse("2011/04/12 09:45"),
-                    HighPrecision = TS_Precision.Minute
-                }
-            );
-
-
-            TP145212GB02_WorkgroupUniversal serviceEventPerformer1 = new TP145212GB02_WorkgroupUniversal();
-            serviceEventPerformer1.SetId("1.2.826.0.1285.0.2.0.109", "102016309999");
-            serviceEventPerformer1.SetCode("2.16.840.1.113883.2.1.3.2.4.17.266", "01", "CHC Team");
-            serviceEventPerformer1.SetOrgSDSOrgCode("V396AA", "East Cheshire NHS Trust");
-
-            PN_Helper seName = new PN_Helper()
-            {
-                Given1 = "Mary",
-                Family = "Mooney"
-            };
-            serviceEventPerformer1.SetPersonName(seName);
-
-            se.AddPerformer(
-                serviceEventPerformer1,
-                p_performer_000091.serviceEventPerformer.PRF,
-                p_performer_000091.participationFunction.MDWF,
-                new IVLTS_Helper()
-                {
-                    Low = DateTime.Parse("2011/08/12 09:45"),
-                    LowPrecision = TS_Precision.Second,
-                }
-                );
-            se.AddPerformer(
-                serviceEventPerformer1,
-                p_performer_000091.serviceEventPerformer.SPRF,
-                null
-                );
-            #endregion
-
-            //doc.AddDocumentationOf(se);
-
-
+           // doc.AddAuthenticator(authenticator, new DateTime(2011, 05, 19, 20, 15, 0, 0));
             #endregion
 
             //
@@ -693,13 +494,13 @@ namespace Example01Dummy
 
             #region encounterParticipant :: TP145212GB02_WorkgroupUniversal
 
-            TP145212GB02_WorkgroupUniversal att_part = new TP145212GB02_WorkgroupUniversal();
+            TP145212GB02_WorkgroupUniversal att_part01 = new TP145212GB02_WorkgroupUniversal();
 
-            att_part.SetId("1.2.3.4.5", "myId00002");
-            att_part.SetCodeNull();
-            //att_part.SetCode("code001");
+            att_part01.SetId("1.2.3.4.5", "myId00002");
+            att_part01.SetCodeNull();
+            //att_part01.SetCode("code001");
 
-            att_part.SetPersonName(
+            att_part01.SetPersonName(
                  new PN_Helper
                  {
                      Prefix = "Miss",
@@ -709,10 +510,10 @@ namespace Example01Dummy
                  }
             );
 
-            att_part.SetOrgSDSSiteCode("V396", "East Cheshire NHS Trust");
+            att_part01.SetOrgSDSSiteCode("V396", "East Cheshire NHS Trust");
 
             ee.AddEncounterParticipantTemplate(
-                att_part,
+                att_part01,
                 p_participation_000089.EncounterParticipationType.Consultant,
                 new IVLTS_Helper
                 {
@@ -724,7 +525,7 @@ namespace Example01Dummy
             );
 
             ee.AddEncounterParticipantTemplate(
-                att_part,
+                att_part01,
                 p_participation_000089.EncounterParticipationType.Referrer
             );
 
@@ -951,7 +752,7 @@ namespace Example01Dummy
             //
             // Create the CDA XML document at the specififed file location.
             //
-            doc.CreateXML("NewTestCDA.xml");
+            doc.CreateXML("NewTestCDADS.xml");
         }
     }
 }

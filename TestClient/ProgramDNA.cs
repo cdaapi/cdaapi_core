@@ -15,7 +15,7 @@ namespace Example01
 {
     class Program
     {
-        static void Main(string[] args)
+        static void DummyMain(string[] args)
         {
 
             ClinicalDocument_POCD_MT010011GB02 doc = new ClinicalDocument_POCD_MT010011GB02();

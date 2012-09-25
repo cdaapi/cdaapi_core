@@ -13,7 +13,7 @@ using MARC.Everest.DataTypes;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145202GB01_RecipientPersonUniversal : NPFIT_000080_Role
+    public class TP145202GB01_RecipientPersonUniversal : NPFIT_000080_Role, NPFIT_000008_Role
     {
         const string TEMPLATEID = "COCD_TP145202GB01";
         const string TEMPLATETEXT = "IntendedRecipient";

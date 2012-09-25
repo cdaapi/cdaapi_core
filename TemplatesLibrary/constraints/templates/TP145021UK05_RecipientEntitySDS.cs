@@ -13,48 +13,43 @@ using MARC.Everest.DataTypes;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145202GB02_RecipientPersonUniversal : NPFIT_000080_Role, NPFIT_000008_Role
+    public class TP145021UK05_RecipientEntitySDS : NPFIT_000008_Role
     {
-        const string TEMPLATEID = "COCD_TP145202GB02";
-        const string TEMPLATETEXT = "IntendedRecipient";
+        const string TEMPLATEID = "COCD_TP145021UK05";
+        const string TEMPLATETEXT = "AssignedEntitySDS";
 
         internal r_intendedRecipient RecipientRole;
 
-        public TP145202GB02_RecipientPersonUniversal()
+        public TP145021UK05_RecipientEntitySDS()
             : base()
         {
             RecipientRole = new r_intendedRecipient("ASSIGNED");
             RecipientRole.templateId = TEMPLATEID;
             RecipientRole.templateText = TEMPLATETEXT;
-
         }
 
-        public void SetIdNull()
+        #region @id
+        public void SetSDSId(string SDSUserId, string SDSRoleProfileId)
         {
-            RecipientRole.SetIdNull("NI");
+            RecipientRole.AddId(OIDStore.OIDSDSUserId, SDSUserId);
+            RecipientRole.AddId(OIDStore.OIDSDSRoleProfileId, SDSRoleProfileId);
         }
-        public void AddId(string root, string extension)
-        {
-            RecipientRole.AddId(root, extension);
-        }
-        public void AddLocalId(string extension, string assignedAuthorityName)
-        {
-            string root = "2.16.840.1.113883.2.1.3.2.4.18.24";
-            RecipientRole.AddId(root, extension, assignedAuthorityName);
-        }
+        #endregion
 
-        public void AddTelecom(TEL_Helper telecom)
+        #region @code
+        public void SetRecipientJobRoleCodeSDS(string jobRoleCodeValue, string jobRoleDisplayValue)
         {
-            RecipientRole.AddTelecom(telecom.TEL);
+            RecipientRole.SetRecipientRoleCode("2.16.840.1.113883.2.1.3.2.4.17.196", jobRoleCodeValue, jobRoleDisplayValue);
         }
-        public void SetAddress(AD_Helper addr)
+        public void SetRecipientJobRoleLocalCode(string codeSystemValue, string codeValue, string displayNameValue)
         {
-            RecipientRole.SetStructuredAddress(addr.AD);
+            RecipientRole.SetRecipientRoleCode(codeSystemValue, codeValue, displayNameValue);
         }
-        public void SetJobRoleCode(string codeValue, string displayNameValue)
+        public void SetRecipientJobRoleCodeNull()
         {
-            RecipientRole.SetRecipientRoleCode(OIDStore.OIDJobRoleName, codeValue, displayNameValue);
+            RecipientRole.SetRecipientRoleCode(NullFlavor.NoInformation);
         }
+        #endregion
 
         #region Entity :: Person
         public void SetPersonName(PN_Helper nameValue)
@@ -78,12 +73,7 @@ namespace nhs.itk.hl7v3.templates
             RecipientRole.representedOrganisation.SetId(OIDStore.OIDOdsOrganisationCode, code);
             RecipientRole.representedOrganisation.SetName(name);
         }
-        public void SetIndustryCode(string code, string displayName)
-        {
-            RecipientRole.InitOrganisation();
-            RecipientRole.representedOrganisation.StandardIndustyClassCode
-                = new CD<string>(code, OIDStore.OIDCDAOrganizationType, null, null, displayName, null);
-        }
+
         #endregion
 
         #region XML Serialization Members }

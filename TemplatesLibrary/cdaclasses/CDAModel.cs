@@ -56,15 +56,17 @@ namespace nhs.itk.hl7v3.cda
         }
 
         #region Document Code
-        /// <summary>
-        /// Set the 'Document Code' for the CDA document
-        /// </summary>
-        /// <param name="codeValue">The SNOMED concept code for the document</param>
-        /// <param name="displayName">The display name for the concept code</param>
+        [Obsolete("Use SetDocumentCodeSnomedCT(SnomedConcept DocumentType)")]
         public void SetDocumentCodeSnomedCT(string codeValue, string displayName)
         {
-            code = new CV<string>(codeValue, OIDStore.OIDCodeSystemSnomedCT, null, null);
-            code.DisplayName = displayName;
+            SnomedConcept docCode = new SnomedConcept(codeValue,displayName);
+            this.SetDocumentCodeSnomedCT(docCode);            
+        }
+
+        public void SetDocumentCodeSnomedCT(SnomedConcept DocumentType)
+        {
+            code = new CV<string>(DocumentType.ConceptCode, OIDStore.OIDCodeSystemSnomedCT, null, null);
+            code.DisplayName = DocumentType.DisplayName;
         }
 
         public void SetDocumentCodeLocal(string codeValue, string displayName, string codeSystem)

@@ -19,7 +19,7 @@ namespace nhs.itk.hl7v3.templates
     /// <summary>
     /// Template TP145201GB01 (Patient Universal) used to represent a patient.
     /// </summary>
-    public class TP145201GB01_PatientUniversal : NPFIT_000083_Role
+    public class TP145201GB01_PatientUniversal : NPFIT_000083_Role, NPFIT_000019_Role
     {
         const string TEMPLATEID = "COCD_TP145201GB01";
         const string TEMPLATETEXT = "PatientRole";
@@ -74,6 +74,8 @@ namespace nhs.itk.hl7v3.templates
         #region Entity :: Patient
         public void SetPatientBirthTime(DateTime timeValue, TS_Precision precision)
         {
+            PatientRole.InitPatient();
+
             TS birthDT = new TS(timeValue);
             birthDT.DateValuePrecision = TS_Helper.ConvertPrecision(precision);
 
@@ -82,15 +84,18 @@ namespace nhs.itk.hl7v3.templates
 
         public void SetPatientGenderCode(administrativeGender value)
         {
+            PatientRole.InitPatient();
             PatientRole.PatientEntity.SetGenderCode(StringEnum.GetStringValue(value));
         }
 
         public void SetPatientName(PN_Helper valueName)
         {
+            PatientRole.InitPatient();
             PatientRole.PatientEntity.Name = valueName.PN;
         }
         public void SetPatientLanguageCode(string value)
         {
+            PatientRole.InitPatient();
             PatientRole.PatientEntity.SetLanguageCode(value);
         }
         #endregion
