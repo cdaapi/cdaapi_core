@@ -38,7 +38,7 @@ namespace nhs.itk.hl7v3.cda
         private p_custodian_000014 custodian;
 
         // CDA Acts (RHS)
-        private List<act_CDAParentDocument> relatedDocument;  // Releated Document.
+        private List<act_CDAParentDocument> relatedDocument;  // Related Document.
         private actRel_componentOf_000052 componentOf;  // Encompassing Encounter
         private CdaBody component;  // Document Body
 
@@ -140,13 +140,9 @@ namespace nhs.itk.hl7v3.cda
         #endregion
 
         #region Act : Related Document
-        public void AddRelatedDocument(act_CDAParentDocument relatedDoc)
+        public void SetRelatedDocument(act_CDAParentDocument relatedDoc)
         {
-            if (relatedDocument == null)
-            {
-                relatedDocument = new List<act_CDAParentDocument>();
-            }
-
+            relatedDocument = new List<act_CDAParentDocument>();
             relatedDocument.Add(relatedDoc);
         }
         #endregion
