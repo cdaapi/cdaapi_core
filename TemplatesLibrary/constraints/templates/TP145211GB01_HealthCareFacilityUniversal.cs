@@ -13,7 +13,10 @@ using MARC.Everest.DataTypes;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145211GB01_HealthCareFacilityUniversal : NPFIT_000090_Role
+    public class TP145211GB01_HealthCareFacilityUniversal : 
+        NPFIT_000027_Role,
+        NPFIT_000090_Role
+
     {
         const string TEMPLATEID = "COCD_TP145211GB01";
         const string TEMPLATETEXT = "HealthCareFacility";

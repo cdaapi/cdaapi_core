@@ -112,6 +112,9 @@
     <Compile Include="cdaclasses\r_intendedRecipient.cs" />
     <Compile Include="cdaclasses\r_patientRole.cs" />
     <Compile Include="cdaclasses\r_relatedEntity.cs" />
+    <Compile Include="constraints\NPFIT-000027-Role.cs" />
+    <Compile Include="constraints\NPFIT-000028-Role.cs" />
+    <Compile Include="constraints\NPFIT-000026-Role.cs" />
     <Compile Include="constraints\NPFIT-000019-Role.cs" />
     <Compile Include="constraints\NPFIT-000007-Role.cs" />
     <Compile Include="constraints\NPFIT-000024-Role.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="constraints\ICodedEntry.cs" />
     <Compile Include="constraints\ITextSection.cs" />
     <Compile Include="constraints\NPFIT-000040-Section.cs" />
+    <Compile Include="constraints\templates\TP145001UK03_AuthorSDS.cs" />
     <Compile Include="constraints\templates\TP145019UK03_NonNamedPersonAuthorSDS.cs" />
     <Compile Include="constraints\templates\TP145022UK02_EntitySDSWithRequiredRoleProfileId.cs" />
     <Compile Include="constraints\templates\TP145004UK03_EntitySDS.cs" />

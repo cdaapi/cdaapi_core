@@ -13,6 +13,7 @@ using nhs.itk.hl7v3.oids;
 namespace nhs.itk.hl7v3.templates
 {
     public class TP145210GB01_PersonWithOrganizationUniversal :
+        NPFIT_000028_Role,
         NPFIT_000085_Role,
         NPFIT_000088_Role,
         NPFIT_000089_Role, 
