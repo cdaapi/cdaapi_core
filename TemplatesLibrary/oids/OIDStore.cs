@@ -24,5 +24,8 @@ namespace nhs.itk.hl7v3.oids
         public static string OIDOdsSiteCode = "2.16.840.1.113883.2.1.3.2.4.19.2";
         public static string OIDOdsOrganisationCode = "2.16.840.1.113883.2.1.3.2.4.19.1";
 
+        public static string OIDSDSUserId = "1.2.826.0.1285.0.2.0.65";
+        public static string OIDSDSRoleProfileId = "1.2.826.0.1285.0.2.0.67";
+
     }
 }
