@@ -44,7 +44,7 @@ namespace Example01Dummy
             rt00.AddPatientIdNhsTraced("1234567891");
             #endregion
             doc.SetRecordTarget(rt00);
-          
+
             #region Add recordTarget :: TP145201GB01_PatientUniversal
             TP145201GB01_PatientUniversal rt01 = new TP145201GB01_PatientUniversal();
 
@@ -238,7 +238,7 @@ namespace Example01Dummy
             #region Add dataEnterer
             TP145004UK03_EntitySDS de0 = new TP145004UK03_EntitySDS();
             de0.SetSDSId("102016305984", "102016307980");
-            de0.SetRecipientJobRoleCodeSDS("14587","Administrative Assistance");
+            de0.SetRecipientJobRoleCodeSDS("14587", "Administrative Assistance");
 
             de0.SetPersonName(
                 new PN_Helper()
@@ -293,7 +293,7 @@ namespace Example01Dummy
             doc.AddPrimaryInformationRecipient(recipient0);
 
             TP145017UK03_RecipientOrganization recipient00 = new TP145017UK03_RecipientOrganization();
-             recipient00.SetOrgSDSOrgCode("V396A", "Medway PCT");
+            recipient00.SetOrgSDSOrgCode("V396A", "Medway PCT");
             doc.AddPrimaryInformationRecipient(recipient00);
 
             #region TP145202GB01
@@ -321,7 +321,7 @@ namespace Example01Dummy
 
             recipient1.SetOrgSDSOrgCode("V396A", "Medway PCT");
 
-           doc.AddPrimaryInformationRecipient(recipient1);
+            doc.AddPrimaryInformationRecipient(recipient1);
             #endregion
 
             #region TP145202GB02
@@ -358,7 +358,7 @@ namespace Example01Dummy
 
             recipient2.SetOrgSDSSiteCode("W123A", "Medway Medical Practice");
 
-           doc.AddTrackerInformationRecipient(recipient2);
+            doc.AddTrackerInformationRecipient(recipient2);
             #endregion
 
             #region TP145203GB02
@@ -439,15 +439,15 @@ namespace Example01Dummy
                 Family = "Berresford"
             };
             authenticator.SetPersonName(this_auth_name);
-           // doc.AddAuthenticator(authenticator, new DateTime(2011, 05, 19, 20, 15, 0, 0));
+            // doc.AddAuthenticator(authenticator, new DateTime(2011, 05, 19, 20, 15, 0, 0));
             #endregion
 
             //
             // Add the encompassing encounter
             //
             #region Add the encompassing encounter
-            TP146228GB01_EncompassingEncounter ee = new TP146228GB01_EncompassingEncounter();
 
+            TP146360GB02_EncompassingEncounter ee = new TP146360GB02_EncompassingEncounter();
             //
             // Populate the entry class
             //    
@@ -492,14 +492,11 @@ namespace Example01Dummy
             ee.SetLocationTemplate(hcf);
             #endregion
 
-            #region encounterParticipant :: TP145212GB02_WorkgroupUniversal
+            #region encounterParticipant
 
-            TP145212GB02_WorkgroupUniversal att_part01 = new TP145212GB02_WorkgroupUniversal();
+            TP145022UK02_EntitySDSWithRequiredRoleProfileId att_part01 = new TP145022UK02_EntitySDSWithRequiredRoleProfileId();
 
-            att_part01.SetId("1.2.3.4.5", "myId00002");
-            att_part01.SetCodeNull();
-            //att_part01.SetCode("code001");
-
+            att_part01.SetSDSId("qqq");
             att_part01.SetPersonName(
                  new PN_Helper
                  {
@@ -512,9 +509,10 @@ namespace Example01Dummy
 
             att_part01.SetOrgSDSSiteCode("V396", "East Cheshire NHS Trust");
 
+
             ee.AddEncounterParticipantTemplate(
                 att_part01,
-                p_participation_000089.EncounterParticipationType.Consultant,
+                p_participation_000028.EncounterParticipationType.Consultant,
                 new IVLTS_Helper
                 {
                     Low = DateTime.Parse("2011/03/12 09:00"),
@@ -526,18 +524,26 @@ namespace Example01Dummy
 
             ee.AddEncounterParticipantTemplate(
                 att_part01,
-                p_participation_000089.EncounterParticipationType.Referrer
+                p_participation_000028.EncounterParticipationType.Referrer
             );
 
             #endregion
 
             #region responsibleParty :: TP145210GB01_PersonWithOrganizationUniversa
             TP145210GB01_PersonWithOrganizationUniversal respParty = new TP145210GB01_PersonWithOrganizationUniversal();
-
-            //respParty.AddId(new HL7V3_II(HL7V3_NullType.NoInformation));
             respParty.SetIdNull();
-
             respParty.SetCode("R0100", "Medical Director");
+            respParty.SetStructuredAddress(
+                 new AD_Helper
+                 {
+                     StreetLine1 = "The Clinic",
+                     StreetLine2 = "23a, The High Street",
+                     StreetLine3 = "Someplace",
+                     City = "SomeTown",
+                     Postcode = "AA12 3TT",
+                     Use = AD_AddressUse.WorkPlace
+                 }
+            );
 
             PN_Helper this_name1 = new PN_Helper()
             {
@@ -545,8 +551,8 @@ namespace Example01Dummy
                 Given1 = "Dave",
                 Family = "Donaldson"
             };
-            respParty.SetPersonName(this_name1);
 
+            respParty.SetPersonName(this_name1);
             respParty.SetOrgSDSOrgCode("VDE232323", "Medway South Out of Hours Centre");
 
             ee.SetResponsiblePartyTemplate(respParty);
@@ -564,10 +570,10 @@ namespace Example01Dummy
             pd1.Id = Guid.NewGuid();
             pd1.SetId = Guid.NewGuid();
             pd1.VersionNumber = 2;
-          
-         //   pd1.SetCodeSnomedCT("185291000000100", "Emergency Department Report");
 
-            doc.AddRelatedDocument(pd1);
+            //   pd1.SetCodeSnomedCT("185291000000100", "Emergency Department Report");
+
+            doc.SetRelatedDocument(pd1);
             #endregion
 
             //
@@ -599,7 +605,7 @@ namespace Example01Dummy
 
             text_author.SetOrgSDSSiteCode("AB345", "Medway South Out of Hours Centre");
 
-            sTextDS1.SetAuthorTemplate(text_author, new DateTime(2007, 08, 01, 20, 11,12));
+            sTextDS1.SetAuthorTemplate(text_author, new DateTime(2007, 08, 01, 20, 11, 12));
             #endregion
 
             doc.AddStructuredBodyTemplate(sTextDS1);

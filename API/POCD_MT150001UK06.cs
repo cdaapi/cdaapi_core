@@ -39,7 +39,7 @@ namespace nhs.itk.hl7v3.cda
 
         // CDA Acts (RHS)
         private List<act_CDAParentDocument> relatedDocument;  // Related Document.
-        private actRel_componentOf_000052 componentOf;  // Encompassing Encounter
+        private actRel_componentOf_000001 componentOf;  // Encompassing Encounter
         private CdaBody component;  // Document Body
 
         // Constructor for the CDA model
@@ -148,10 +148,10 @@ namespace nhs.itk.hl7v3.cda
         #endregion
 
         #region Act : EncompassingEncounter
-        public void AddComponentOf(NPFIT_000052_Act template)
+        public void AddComponentOf(NPFIT_000001_Act template)
         {
-            componentOf = new actRel_componentOf_000052();
-            componentOf.Act = (TP146228GB01_EncompassingEncounter)template;
+            componentOf = new actRel_componentOf_000001();
+            componentOf.Act = template;
         }
         #endregion
 

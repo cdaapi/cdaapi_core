@@ -78,6 +78,11 @@
     <Compile Include="cdaclasses\CDAModel.cs" />
     <Compile Include="cdaclasses\cdaClassificationSection.cs" />
     <Compile Include="cdaclasses\act_ObservationMedia.cs" />
+    <Compile Include="cdaclasses\actRel_componentOf_000001.cs" />
+    <Compile Include="cdaclasses\act_EncompassingEncounter_0001.cs" />
+    <Compile Include="cdaclasses\p_participation_000028.cs" />
+    <Compile Include="cdaclasses\p_location_000027.cs" />
+    <Compile Include="cdaclasses\p_responsibleParty_000026.cs" />
     <Compile Include="cdaclasses\p_recordTarget_000019.cs" />
     <Compile Include="cdaclasses\p_author_000007.cs" />
     <Compile Include="cdaclasses\p_authenticator_000024.cs" />
@@ -112,6 +117,7 @@
     <Compile Include="cdaclasses\r_intendedRecipient.cs" />
     <Compile Include="cdaclasses\r_patientRole.cs" />
     <Compile Include="cdaclasses\r_relatedEntity.cs" />
+    <Compile Include="constraints\NPFIT-000001-Act.cs" />
     <Compile Include="constraints\NPFIT-000027-Role.cs" />
     <Compile Include="constraints\NPFIT-000028-Role.cs" />
     <Compile Include="constraints\NPFIT-000026-Role.cs" />
@@ -127,6 +133,8 @@
     <Compile Include="constraints\ICodedEntry.cs" />
     <Compile Include="constraints\ITextSection.cs" />
     <Compile Include="constraints\NPFIT-000040-Section.cs" />
+    <Compile Include="constraints\templates\TP146360GB02_EncompassingEncounter.cs" />
+    <Compile Include="constraints\templates\TP145024UK01_HealthCareFacility.cs" />
     <Compile Include="constraints\templates\TP145001UK03_AuthorSDS.cs" />
     <Compile Include="constraints\templates\TP145019UK03_NonNamedPersonAuthorSDS.cs" />
     <Compile Include="constraints\templates\TP145022UK02_EntitySDSWithRequiredRoleProfileId.cs" />
