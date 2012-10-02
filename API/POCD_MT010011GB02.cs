@@ -22,7 +22,7 @@ using nhs.itk.hl7v3.utils;
 namespace nhs.itk.hl7v3.cda
 {
     /// <summary>
-    /// 
+    /// Non Coded CDA Document
     /// </summary>
     public sealed class ClinicalDocument_POCD_MT010011GB02 : CDAModel
     {

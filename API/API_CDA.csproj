@@ -83,6 +83,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="POCD_MT030001UK01.cs" />
     <Compile Include="POCD_MT150001UK06.cs" />
     <Compile Include="POCD_MT010011GB02.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

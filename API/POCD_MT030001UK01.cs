@@ -22,11 +22,11 @@ using nhs.itk.hl7v3.utils;
 namespace nhs.itk.hl7v3.cda
 {
     /// <summary>
-    /// Discharge Summary
+    /// The Ambulance Report
     /// </summary>
-    public sealed class ClinicalDocument_POCD_MT150001UK06 : CDAModel
+    public sealed class ClinicalDocument_POCD_MT030001UK01 : CDAModel
     {
-        const string MESSAGE_TYPE = "POCD_MT150001UK06";
+        const string MESSAGE_TYPE = "POCD_MT030001UK01";
         const bool modelIsCDA = true;
 
         // Participations (LHS) - These need to be customised for each profile so as to use the correct constraint      
@@ -43,14 +43,14 @@ namespace nhs.itk.hl7v3.cda
         private CdaBody component;  // Document Body
 
         // Constructor for the CDA model
-        public ClinicalDocument_POCD_MT150001UK06()
+        public ClinicalDocument_POCD_MT030001UK01()
         {
             base.setupCDADocument();
             base.MessageType = MESSAGE_TYPE;
         }
 
         // Constructor for the CDA model
-        public ClinicalDocument_POCD_MT150001UK06(Guid id)
+        public ClinicalDocument_POCD_MT030001UK01(Guid id)
         {
             setupCDADocument();
             MessageType = MESSAGE_TYPE;
