@@ -241,7 +241,8 @@ namespace nhs.itk.hl7v3.rim
                     writer.WriteAttributeString("type", "http://www.w3.org/2001/XMLSchema-instance", valueType);
                     writer.WriteAttributeString("representation", valueEDRepresentation);
                     writer.WriteAttributeString("mediaType", valueEDMediaType);
-                    writer.WriteString(valueED);
+                    //writer.WriteString(valueED);
+                    writer.WriteRaw(valueED);
                     writer.WriteEndElement();
                 }
             }
