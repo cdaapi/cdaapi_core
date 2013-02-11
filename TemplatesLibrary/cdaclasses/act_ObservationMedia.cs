@@ -23,6 +23,7 @@ namespace nhs.itk.hl7v3.cda.classes
         internal List<p_subject_000070> subject;
         internal p_informant_000085 informant;
         internal p_author_000081 author;
+        internal List<GeneralParticipationClass> participant;
 
         internal act_ObservationMedia()
             : base()
@@ -112,6 +113,16 @@ namespace nhs.itk.hl7v3.cda.classes
         }
         #endregion
 
+        public void AddParticipant(GeneralParticipationClass thisParticipation)
+        {
+
+            if (participant == null)
+            {
+                participant = new List<GeneralParticipationClass>();
+            }
+
+            participant.Add(thisParticipation);
+        }
 
         #region XML Members
 
@@ -151,6 +162,17 @@ namespace nhs.itk.hl7v3.cda.classes
                 informant.TemplateId = templateId;
                 informant.WriteXml(writer);
                 writer.WriteEndElement();
+            }
+
+            if (participant != null)
+            {
+                foreach (GeneralParticipationClass item in participant)
+                {
+                    writer.WriteStartElement("participant");
+                    item.TemplateId = templateId;
+                    item.WriteXml(writer);
+                    writer.WriteEndElement();
+                }
             }
 
             writer.WriteEndElement();

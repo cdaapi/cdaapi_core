@@ -17,53 +17,56 @@ using nhs.itk.hl7v3.utils;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP146228GB01_EncompassingEncounter : NPFIT_000052_Act
+    public class TP146232GB01_EncompassingEncounter : NPFIT_000052_Act
     {
-        const string TEMPLATEID = "COCD_TP146228GB01";
+        const string TEMPLATEID = "COCD_TP146232GB01";
         const string TEMPLATETEXT = "EncompassingEncounter";
 
         internal act_EncompassingEncounter act;
 
-        public TP146228GB01_EncompassingEncounter()
+        public TP146232GB01_EncompassingEncounter()
             : base()
         {
             act = new act_EncompassingEncounter();
             act.templateId = TEMPLATEID;
             act.templateText = TEMPLATETEXT;
+
+            // The code for this encompassing encounter template is fixed.
+            SetCode("2.16.840.1.113883.2.1.3.2.4.17.326", "NHS111Encounter", "NHS111 Encounter");
         }
 
 
         #region ACT :: Entry Act
 
         #region @id
-        public void AddId(Guid id)
+        public void AddId(String CaseReferenece, String CaseIdentifier = null)
         {
-            act.AddId(id);
+
+            // Sets the two specialised used of 'id' for this template.
+            // TODO - should be more defensive around dealing with nulls etc.
+            if (CaseReferenece != null)
+            {
+                act.AddId("2.16.840.1.113883.2.1.3.2.4.18.34", CaseReferenece);
+            }
+
+            if (CaseIdentifier != null)
+            {
+                act.AddId("2.16.840.1.113883.2.1.3.2.4.18.35", CaseIdentifier);
+            }
+
+
         }
         #endregion
 
         #region @code
         /// <summary>
-        /// Sets the code
+        /// Sets the code - note this is 'private' as it is only used by the class constructor to set the default code for this template.
         /// </summary>
-        public void SetCode(string codeSystemValue, string codeValue, string displayNameValue)
+        private void SetCode(string codeSystemValue, string codeValue, string displayNameValue)
         {
             act.SetCode(codeSystemValue, codeValue, displayNameValue);
         }
-        /// <summary>
-        /// Sets the code using SNOMEDCT. The OID is set automatically,
-        /// </summary>
-        public void SetCodeSnomedCT(string codeValue, string displayNameValue)
-        {
-            act.SetCode(OIDStore.OIDCodeSystemSnomedCT, codeValue, displayNameValue);
-        }
-        /// <summary>
-        /// Sets the code using a default OID, for the case when no OID is available locally,
-        /// </summary>
-        public void SetCodeLocal(string codeValue, string displayNameValue)
-        {
-            act.SetCode("2.16.840.1.113883.2.1.3.2.4.17.413", codeValue, displayNameValue);
-        }
+
         #endregion
 
         #region @effectiveTime
@@ -87,7 +90,7 @@ namespace nhs.itk.hl7v3.templates
         }
         public void SetDischargeDispositionCodeLocal(string codeValue, string displayNameValue)
         {
-            act.SetDischargeDispositionCode("2.16.840.1.113883.2.1.3.2.4.17.414", codeValue, displayNameValue);
+            act.SetDischargeDispositionCode("2.16.840.1.113883.2.1.3.2.4.15", codeValue, displayNameValue);
         }
         public void SetDischargeDispositionCodeNull()
         {
@@ -98,14 +101,13 @@ namespace nhs.itk.hl7v3.templates
 
         #region location : Template
 
-        public void SetLocationTemplate(NPFIT_000090_Role template)
+        public void SetLocationTemplate(NPFIT_000099_Role template)
         {
             GeneralParticipationClass participation = new GeneralParticipationClass();
-            participation.typeCode = "DEV";
-            participation.contextControlCode = "OP";
+            participation.typeCode = "LOC";
             participation.Role = template;
-            participation.itsParticipantTag = "participant";
-            participation.itsRoleTag = "participantRole";
+            participation.itsParticipantTag = "location";
+            participation.itsRoleTag = "healthCareFacility";
             act.SetLocation(participation);
         }
         #endregion
@@ -119,6 +121,7 @@ namespace nhs.itk.hl7v3.templates
             participation.Role = template;
             participation.itsParticipantTag = "responsibleParty";
             participation.itsRoleTag = "assignedEntity";
+
             act.SetResponsibleParty(participation);
         }
         #endregion

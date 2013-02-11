@@ -19,6 +19,8 @@ namespace nhs.itk.hl7v3.cda.classes
         {
             this.ClassCode = classCode;
             this.DeterminerCode = determinerCode;
+
+            this.itsEntityTag = "";
         }
 
         internal new void SetId(string root, string extension)

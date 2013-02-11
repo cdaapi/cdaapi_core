@@ -51,9 +51,13 @@ namespace nhs.itk.hl7v3.cda.classes
             {
                 OrganisationEntity = new e_organisation("ORG", "INSTANCE");
                 OrganisationEntity.StandardIndustyClassCode = new CD<String>("001", "2.16.840.1.113883.2.1.3.2.4.17.289", null, null, "GP Practice", null);
-                OrganisationEntity.StandardIndustyClassCode.OriginalText.MediaType = null;
-                OrganisationEntity.StandardIndustyClassCode.OriginalText.Language = null;
-                OrganisationEntity.StandardIndustyClassCode.OriginalText = null;
+              
+                
+                
+              // TODO - EVEREST 1.0 Fix  
+              //  OrganisationEntity.StandardIndustyClassCode.OriginalText.MediaType = null;
+              //  OrganisationEntity.StandardIndustyClassCode.OriginalText.Language = null;
+              //  OrganisationEntity.StandardIndustyClassCode.OriginalText = null;
 
             }
         }

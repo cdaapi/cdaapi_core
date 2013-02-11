@@ -13,15 +13,15 @@ using MARC.Everest.DataTypes;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP145211GB01_HealthCareFacilityUniversal : NPFIT_000090_Role
+    public class TP145222GB01_HealthCareFacilityUniversal : NPFIT_000099_Role
     {
-        const string TEMPLATEID = "COCD_TP145211GB01";
+        const string TEMPLATEID = "COCD_TP145222GB01";
         const string TEMPLATETEXT = "HealthCareFacility";
 
         //private CV<String> mdHCFCode;
         internal r_healthCareFacility HCFRole;
 
-        public TP145211GB01_HealthCareFacilityUniversal()
+        public TP145222GB01_HealthCareFacilityUniversal()
             : base()
         {
             HCFRole = new r_healthCareFacility("ISDLOC");
@@ -30,26 +30,38 @@ namespace nhs.itk.hl7v3.templates
         }
         #region ROLE :: HealthCareFacility
 
-        public void AddId(string root, string extension)
+        public void SetId(string uniquePropertyReferenceNo, string OSUniqueId = null, string RoyalMailDeliveryPointReference=null)
         {
-            HCFRole.AddId(root, extension);
+            HCFRole.AddId("2.16.840.1.113883.2.1.3.2.4.18.41", uniquePropertyReferenceNo);
+
+            if (!string.IsNullOrEmpty(OSUniqueId))
+            {
+            HCFRole.AddId("2.16.840.1.113883.2.1.3.2.4.18.42", OSUniqueId);
+            }
+
+            if (!string.IsNullOrEmpty(RoyalMailDeliveryPointReference))
+            {
+                HCFRole.AddId("2.16.840.1.113883.2.1.3.2.4.18.43", RoyalMailDeliveryPointReference);
+            }          
         }
-        public void SetIdNul()
+
+        public void SetIdNull()
         {
             HCFRole.SetIdNull("NA");
         }
 
-
-        public void AddLocalId(string identifier, string assignedAuthorityName)
-        {
-            string root = "2.16.840.1.113883.2.1.3.2.4.18.38";
-            HCFRole.AddId(root, identifier, assignedAuthorityName);
-        }
-        public void SetCareSettingTypeCode(string codeValue, string displayNameValue)
+        public void SetCodeSnomedCT(string codeValue, string displayNameValue)
         {
             string codeSystemValue = OIDStore.OIDCodeSystemSnomedCT;
             HCFRole.SetCode(codeSystemValue, codeValue, displayNameValue);
         }
+
+        public void SetCodeLocal(string codeValue, string displayNameValue)
+        {
+            string codeSystemValue = "2.16.840.1.113883.2.1.3.2.4.17.410";
+            HCFRole.SetCode(codeSystemValue, codeValue, displayNameValue);
+        }
+
         #endregion
 
         #region ENTITY :: Place

@@ -15,9 +15,9 @@ namespace nhs.itk.hl7v3.cda.classes
     {
         internal string templateId { get; set; }
         internal string templateText { get; set; }
-        internal e_person assignedPerson;
-        internal e_organisation representedOrganisation;
-        internal e_device assignedDevice;
+        internal EntityClass assignedPerson;
+        internal EntityClass representedOrganisation;
+        internal EntityClass assignedDevice;
 
         internal r_assignedAuthor()
             : base()
@@ -43,37 +43,71 @@ namespace nhs.itk.hl7v3.cda.classes
             { assignedDevice = new e_device("DEV", "INSTANCE"); }
         }
 
+        internal void InitDevice(String XMLTagName)
+        {
+            this.InitDevice();
+            assignedDevice.itsEntityTag = XMLTagName;
+        }
+
         #region XML Serialization Members
 
         internal void WriteXml(XmlWriter writer)
         {
+            String xmlTagName;
+
             writer.WriteAttributeString("classCode", ClassCode);
             its.TemplateSignpost(templateId + "#" + templateText, writer);
             writeXML(writer);
 
             if (assignedPerson != null)
             {
-                writer.WriteStartElement("assignedPerson");
+                if (string.IsNullOrEmpty(assignedPerson.itsEntityTag))
+                {
+                    xmlTagName = "assignedPerson";
+                }
+                else
+                {
+                    xmlTagName = assignedPerson.itsEntityTag;
+                }
+
+                writer.WriteStartElement(xmlTagName);
                 assignedPerson.TemplateId = templateId;
-                assignedPerson.TemplateText = "assignedPerson";
+                assignedPerson.TemplateText = xmlTagName;
                 assignedPerson.WriteXml(writer);
                 writer.WriteEndElement();
             }
 
             if (assignedDevice != null)
             {
-                writer.WriteStartElement("assignedAuthoringDevice");
+                if (string.IsNullOrEmpty(assignedDevice.itsEntityTag))
+                {
+                    xmlTagName = "assignedAuthoringDevice";
+                }
+                else
+                {
+                    xmlTagName = assignedDevice.itsEntityTag;
+                }
+
+                writer.WriteStartElement(xmlTagName);
                 assignedDevice.TemplateId = templateId;
-                assignedDevice.TemplateText = "assignedAuthoringDevice";
+                assignedDevice.TemplateText = xmlTagName;
                 assignedDevice.WriteXml(writer);
                 writer.WriteEndElement();
             }
 
             if (representedOrganisation != null)
             {
-                writer.WriteStartElement("representedOrganization");
+                if (string.IsNullOrEmpty(representedOrganisation.itsEntityTag))
+                {
+                    xmlTagName = "representedOrganization";
+                }
+                else
+                {
+                    xmlTagName = representedOrganisation.itsEntityTag;
+                }
+                writer.WriteStartElement(xmlTagName);
                 representedOrganisation.TemplateId = templateId;
-                representedOrganisation.TemplateText = "representedOrganization";
+                representedOrganisation.TemplateText = xmlTagName;
                 representedOrganisation.WriteXml(writer);
                 writer.WriteEndElement();
             }

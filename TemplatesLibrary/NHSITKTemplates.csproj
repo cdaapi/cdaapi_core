@@ -40,14 +40,13 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MARC.Everest">
-      <HintPath>..\lib\MARC.Everest.dll</HintPath>
+    <Reference Include="MARC.Everest, Version=1.3.0.0, Culture=neutral, PublicKeyToken=ba5b2480018546af, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\release\MARC.Everest.dll</HintPath>
     </Reference>
-    <Reference Include="MARC.Everest.Formatters.XML.Datatypes.R1">
-      <HintPath>..\lib\MARC.Everest.Formatters.XML.Datatypes.R1.dll</HintPath>
-    </Reference>
-    <Reference Include="MARC.Everest.Formatters.XML.ITS1">
-      <HintPath>..\lib\MARC.Everest.Formatters.XML.ITS1.dll</HintPath>
+    <Reference Include="MARC.Everest.Formatters.XML.Datatypes.R1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=50c44f29d884a7e5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\release\MARC.Everest.Formatters.XML.Datatypes.R1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -77,6 +76,7 @@
     <Compile Include="cdaclasses\act_ObservationMedia.cs" />
     <Compile Include="cdaclasses\p_participation_000089.cs" />
     <Compile Include="cdaclasses\p_subject_000070.cs" />
+    <Compile Include="cdaclasses\r_participantRole.cs" />
     <Compile Include="cdaclasses\r_relatedSubject.cs" />
     <Compile Include="cdaclasses\p_performer_000091.cs" />
     <Compile Include="cdaclasses\e_device.cs" />
@@ -90,11 +90,9 @@
     <Compile Include="cdaclasses\p_dataEnterer_000082.cs" />
     <Compile Include="cdaclasses\p_encounterParticipant_000089.cs" />
     <Compile Include="cdaclasses\p_informant_000085.cs" />
-    <Compile Include="cdaclasses\p_location_000090.cs" />
     <Compile Include="cdaclasses\p_participation_000086.cs" />
     <Compile Include="cdaclasses\p_recipient_000080.cs" />
     <Compile Include="cdaclasses\p_recordTarget_000083.cs" />
-    <Compile Include="cdaclasses\p_responsibleParty_000088.cs" />
     <Compile Include="cdaclasses\r_assignedAuthor.cs" />
     <Compile Include="cdaclasses\r_assignedCustodian.cs" />
     <Compile Include="cdaclasses\r_assignedEntity.cs" />
@@ -104,6 +102,7 @@
     <Compile Include="cdaclasses\r_intendedRecipient.cs" />
     <Compile Include="cdaclasses\r_patientRole.cs" />
     <Compile Include="cdaclasses\r_relatedEntity.cs" />
+    <Compile Include="constraints\NPFIT-000065-Section.cs" />
     <Compile Include="constraints\NPFIT-000070-Role.cs" />
     <Compile Include="constraints\IParticipation.cs" />
     <Compile Include="constraints\ITemplateAuthor.cs" />
@@ -111,8 +110,16 @@
     <Compile Include="constraints\ICodedEntry.cs" />
     <Compile Include="constraints\ITextSection.cs" />
     <Compile Include="constraints\NPFIT-000040-Section.cs" />
+    <Compile Include="constraints\NPFIT-000087-NHS111-Role.cs" />
+    <Compile Include="constraints\NPFIT-000087-Role.cs" />
+    <Compile Include="constraints\NPFIT-000099-Role.cs" />
+    <Compile Include="constraints\templates\TP145000GB01_NHS111TriageDevice.cs" />
     <Compile Include="constraints\templates\TP145213GB01_RelatedSubject.cs" />
+    <Compile Include="constraints\templates\TP145222GB01_HealthCareFacilityUniversal.cs" />
+    <Compile Include="constraints\templates\TP146002GB01_TriageAtachment.cs" />
     <Compile Include="constraints\templates\TP146224GB02_Atachment.cs" />
+    <Compile Include="constraints\templates\TP146232GB01_EncompassingEncounter.cs" />
+    <Compile Include="constraints\templates\TP146246GB01_NHS111TextSection.cs" />
     <Compile Include="constraints\templates\TP146248GB01_ReferenceURL.cs" />
     <Compile Include="constraints\templates\TP146229GB01_TextSection.cs" />
     <Compile Include="constraints\NPFIT-000091-Role.cs" />
@@ -134,6 +141,7 @@
     <Compile Include="constraints\templates\TP145204GB03_RecipientWorkgroupUniversal.cs" />
     <Compile Include="constraints\templates\TP145202GB02_RecipientPersonUniversal.cs" />
     <Compile Include="constraints\templates\TP145203GB03_RecipientOrganizationUniversal.cs" />
+    <Compile Include="constraints\TextSubSection.cs" />
     <Compile Include="datatypes\AD.cs" />
     <Compile Include="datatypes\SnomedConcept.cs" />
     <Compile Include="datatypes\IVLTS.cs" />
@@ -146,6 +154,7 @@
     <Compile Include="rim\ActClass.cs" />
     <Compile Include="rim\ActRelationshipClass.cs" />
     <Compile Include="rim\EntityClass.cs" />
+    <Compile Include="rim\GeneralParticipationClass.cs" />
     <Compile Include="rim\ParticipationClass.cs" />
     <Compile Include="rim\RoleClass.cs" />
     <Compile Include="constraints\templates\TP145007UK03_RelatedEntity.cs" />

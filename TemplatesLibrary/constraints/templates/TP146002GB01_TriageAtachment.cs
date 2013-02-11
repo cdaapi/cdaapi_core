@@ -16,17 +16,29 @@ using nhs.itk.hl7v3.xml;
 
 namespace nhs.itk.hl7v3.templates
 {
-    public class TP146224GB02_Attachment : NPFIT_000066_Section, ICodedEntry
+    public class TP146002GB01_TriageAttachment : NPFIT_000066_Section, ICodedEntry
     {
-        const string TEMPLATEID = "COCD_TP146224GB02";
+        const string TEMPLATEID = "COCD_TP146002GB01";
         const string TEMPLATETEXT = "ObservationMedia";
 
         internal act_ObservationMedia act;
 
+        internal class p_subject : ParticipationClass
+        {
+            internal NPFIT_000087_Role Role { set; get; }
+
+            internal p_subject()
+                : base()
+            {
+                base.typeCode = "DEV";
+                base.contextControlCode = "OP";
+            }
+
+        }
         /// <summary>
         /// Template Constructor
         /// </summary>
-        public TP146224GB02_Attachment()
+        public TP146002GB01_TriageAttachment()
             : base()
         {
             act = new act_ObservationMedia();
@@ -35,16 +47,17 @@ namespace nhs.itk.hl7v3.templates
         }
 
         public void SetId(Guid id)
-        {          
+        {
             act.SetId(id);
         }
 
+        #region attachments
         public void SetAttachmentB64(string thisMediaType, string attachmentFileName)
         {
             string attachmentTextValue = its.B64(attachmentFileName);
 
             act.SetValueED(
-                "ED.NHS.ObservationMedia",
+                "ED.NHS.NHS111Attachment",
                 "B64",
                 thisMediaType,
                 attachmentTextValue
@@ -56,35 +69,29 @@ namespace nhs.itk.hl7v3.templates
             string attachmentTextValue = its.TEXT(attachmentFileName);
 
             act.SetValueED(
-                "ED.NHS.ObservationMedia",
+                "ED.NHS.NHS111Attachment",
                 "TXT",
                 thisMediaType,
                 attachmentTextValue
                 );
         }
-        
+        #endregion
+
         #region subject : Template
 
-        public void AddSubjectTemplate(NPFIT_000070_Role template, CDATargetAwareness awarenessCode)
+        public void AddDeviceParticipantTemplate(NPFIT_000087_NHS111_Role template)
         {
-            act.AddSubject(template, awarenessCode);
+            GeneralParticipationClass participation = new GeneralParticipationClass();
+            participation.typeCode = "DEV";
+            participation.contextControlCode = "OP";
+            participation.Role = template;
+            participation.itsParticipantTag = "participant";
+            participation.itsRoleTag = "participantRole";
+            act.AddParticipant(participation);
         }
         #endregion
 
-        #region author : Template
-        public void SetAuthorTemplate(NPFIT_000081_Role template, DateTime timeValue)
-        {
-            act.SetAuthor(template,timeValue);
-        }
-        #endregion
 
-        #region informant : Template
-        public void SetInformantTemplate(NPFIT_000085_Role template)
-        {
-            act.SetInformant(template);
-        }
-        #endregion
-        
         #region XML Serialization Members
         public void WriteXml(XmlWriter writer)
         {
@@ -92,7 +99,7 @@ namespace nhs.itk.hl7v3.templates
         }
 
         #endregion
-        
+
         #region NPFIT_000000_Role Members
         public string getTemplateID() { return TEMPLATEID; }
         public string getTemplateText() { return TEMPLATETEXT; }

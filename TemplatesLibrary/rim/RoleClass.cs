@@ -45,6 +45,9 @@ namespace nhs.itk.hl7v3.rim
 
             switch (flavorCode)
             {
+                case "NA":
+                    flavorValue = NullFlavor.NotApplicable;
+                    break;
                 case "NI":
                     flavorValue = NullFlavor.NoInformation;
                     break;
@@ -58,6 +61,7 @@ namespace nhs.itk.hl7v3.rim
             this.id = new List<II>();
             II temp = new II();
             temp.NullFlavor = flavorValue;
+         
 
             this.id = new List<II>();
             this.id.Add(temp);
@@ -69,6 +73,9 @@ namespace nhs.itk.hl7v3.rim
 
             switch (flavorCode)
             {
+                case "NA":
+                    flavorValue = NullFlavor.NotApplicable;
+                    break;
                 case "NI":
                     flavorValue = NullFlavor.NoInformation;
                     break;
@@ -104,6 +111,7 @@ namespace nhs.itk.hl7v3.rim
             temp.Extension = extension;
             temp.Root = root;
             temp.AssigningAuthorityName = assignedAuthorityName;
+            
             this.id.Add(temp);
         }
 

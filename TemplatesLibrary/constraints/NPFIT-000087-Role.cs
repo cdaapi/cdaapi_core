@@ -7,8 +7,8 @@ using System.Xml.Serialization;
 namespace nhs.itk.hl7v3.templates
 {
     /// <summary>
-    /// Constraint for ClinicalDocument.authenticator
+    /// Constraint for ClinicalDocument.participant
     /// </summary>
-    public interface NPFIT_000084_Role : ITemplateConstraint
+    public interface NPFIT_000087_Role : ITemplateConstraint
     { }
 }

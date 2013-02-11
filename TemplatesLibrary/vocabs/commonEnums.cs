@@ -182,6 +182,11 @@ namespace nhs.itk.hl7v3.utils
         /// Witness
         /// </summary>
         [StringValue("WIT")]
-        WIT
+        WIT,
+        /// <summary>
+        /// Referred To
+        /// </summary>
+        [StringValue("REFT")]
+        REFT
     }
 }

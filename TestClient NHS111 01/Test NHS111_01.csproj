@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4351449C-7EC4-4619-B721-F354A1E86734}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{59A2977F-826C-4A29-B388-84F5ACA75FF3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>itk.cda</RootNamespace>
-    <AssemblyName>POCD_MT010011GB02</AssemblyName>
+    <RootNamespace>Example01</RootNamespace>
+    <AssemblyName>Test01</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -56,14 +56,6 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MARC.Everest, Version=1.3.0.0, Culture=neutral, PublicKeyToken=ba5b2480018546af, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\3rdParty\release\MARC.Everest.dll</HintPath>
-    </Reference>
-    <Reference Include="MARC.Everest.Formatters.XML.Datatypes.R1, Version=1.1.0.0, Culture=neutral, PublicKeyToken=50c44f29d884a7e5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\3rdParty\release\MARC.Everest.Formatters.XML.Datatypes.R1.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -78,9 +70,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="POCD_MT010011GB02.cs" />
-    <Compile Include="POCD_MT200001GB02.cs" />
+    <Compile Include="Program111CDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API\API_CDA.csproj">
+      <Project>{4351449C-7EC4-4619-B721-F354A1E86734}</Project>
+      <Name>API_CDA</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplatesLibrary\NHSITKTemplates.csproj">
+      <Project>{1FE0C3F5-3827-4C18-B329-3DE71D0EC5C5}</Project>
+      <Name>NHSITKTemplates</Name>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -103,12 +106,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TemplatesLibrary\NHSITKTemplates.csproj">
-      <Project>{1FE0C3F5-3827-4C18-B329-3DE71D0EC5C5}</Project>
-      <Name>NHSITKTemplates</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

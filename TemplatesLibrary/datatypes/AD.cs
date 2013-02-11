@@ -32,9 +32,13 @@ namespace nhs.itk.hl7v3.datatypes
         private AD address;
         private string postcode;
         private string city;
+        private string country;
+        private string description;
+        private string additionalLocator;
         private string streetLine1;
         private string streetLine2;
         private string streetLine3;
+        private string streetLine4;
         private IVLTS_Helper useablePeriod;
         private bool useablePeriodSet;
 
@@ -69,6 +73,25 @@ namespace nhs.itk.hl7v3.datatypes
             get { return city; }
             set { city = value; }
         }
+
+        public string Country
+        {
+            get { return country; }
+            set { country = value; }
+        }
+
+        public string AdditionalLocator
+        {
+            get { return additionalLocator; }
+            set { additionalLocator = value; }
+        }
+
+        public string Description
+        {
+            get { return description; }
+            set { description = value; }
+        }
+
         public string StreetLine1
         {
             get { return streetLine1; }
@@ -83,6 +106,11 @@ namespace nhs.itk.hl7v3.datatypes
         {
             get { return streetLine3; }
             set { streetLine3 = value; }
+        }
+        public string StreetLine4
+        {
+            get { return streetLine4; }
+            set { streetLine4 = value; }
         }
 
         public IVLTS_Helper UseablePeriod
@@ -119,8 +147,14 @@ namespace nhs.itk.hl7v3.datatypes
                 if (streetLine1 != null) tempAddress.Part.Add(new ADXP(streetLine1, AddressPartType.StreetAddressLine));
                 if (streetLine2 != null) tempAddress.Part.Add(new ADXP(streetLine2, AddressPartType.StreetAddressLine));
                 if (streetLine3 != null) tempAddress.Part.Add(new ADXP(streetLine3, AddressPartType.StreetAddressLine));
+                if (streetLine4 != null) tempAddress.Part.Add(new ADXP(streetLine4, AddressPartType.StreetAddressLine));
                 if (city != null) tempAddress.Part.Add(new ADXP(city, AddressPartType.City));
                 if (postcode != null) tempAddress.Part.Add(new ADXP(postcode, AddressPartType.PostalCode));
+
+                if (country != null) tempAddress.Part.Add(new ADXP(country, AddressPartType.Country));
+                if (additionalLocator != null) tempAddress.Part.Add(new ADXP(additionalLocator, AddressPartType.AdditionalLocator));
+
+                if (description != null) tempAddress.Part.Add(new ADXP(description, AddressPartType.Description));
 
                 if (useablePeriodSet)
                 {

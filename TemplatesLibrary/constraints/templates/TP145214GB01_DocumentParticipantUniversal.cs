@@ -57,8 +57,6 @@ namespace nhs.itk.hl7v3.templates
             ParticipationRole.templateId = TEMPLATEID;
             ParticipationRole.templateText = TEMPLATETEXT;
 
-            ParticipationRole.InitPerson();
-
         }
         #region ROLE :: AssignedEntity
 
@@ -115,6 +113,7 @@ namespace nhs.itk.hl7v3.templates
         #region ENTITY :: Person
         public void SetPersonName(PN_Helper valueName)
         {
+            ParticipationRole.InitPerson();
             ParticipationRole.associatedPerson.SetName(valueName.PN);
         }
         #endregion

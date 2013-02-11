@@ -18,9 +18,9 @@ namespace nhs.itk.hl7v3.cda.classes
         internal string templateId { get; set; }
         internal string templateText { get; set; }
 
-        internal p_location_000090 location;
-        internal p_responsibleParty_000088 responsibleParty;
-        internal List<p_participation_000089> participant;
+        internal GeneralParticipationClass location;
+        internal GeneralParticipationClass responsibleParty;
+        internal List<GeneralParticipationClass> participant;
 
         internal act_EncompassingEncounter()
             : base()
@@ -28,7 +28,7 @@ namespace nhs.itk.hl7v3.cda.classes
             base.ClassCode = "ENC";
             base.MoodCode = "EVN";
 
-            location = new p_location_000090();
+            
         }
 
         internal new void AddId(Guid guidValue)
@@ -41,38 +41,21 @@ namespace nhs.itk.hl7v3.cda.classes
             base.SetEffectiveTime(timeInterval);
         }
 
-        internal void SetLocation(NPFIT_000090_Role template)
+        internal void SetLocation(GeneralParticipationClass thisParticipation)
         {
-            location.Role = template;
+            location = thisParticipation;
         }
 
-        internal void SetResponsibleParty(NPFIT_000088_Role template)
+        internal void SetResponsibleParty(GeneralParticipationClass thisParticipation)
         {
-            responsibleParty = new p_responsibleParty_000088();
-            responsibleParty.role = template;
+            responsibleParty = thisParticipation;
         }
 
-        internal void AddParticipantTemplate(NPFIT_000089_Role template, p_participation_000089.EncounterParticipationType type)
+        internal void AddParticipantTemplate(GeneralParticipationClass thisParticipation)
         {
-            if (participant == null) participant = new List<p_participation_000089>();
-
-            p_participation_000089 thisParticipant = new p_participation_000089(type);
-            thisParticipant.Role = template;
-
-            participant.Add(thisParticipant);
+            if (participant == null) participant = new List<GeneralParticipationClass>();
+            participant.Add(thisParticipation);
         }
-
-        internal void AddParticipantTemplate(NPFIT_000089_Role template, p_participation_000089.EncounterParticipationType type, IVLTS_Helper time)
-        {
-            if (participant == null) participant = new List<p_participation_000089>();
-
-            p_participation_000089 thisParticipant = new p_participation_000089(type);
-            thisParticipant.Role = template;
-            thisParticipant.time = time.IVLTS;
-
-            participant.Add(thisParticipant);
-        }
-
         #region XML Members
 
         internal void WriteXml(XmlWriter writer)
@@ -87,14 +70,14 @@ namespace nhs.itk.hl7v3.cda.classes
             if (responsibleParty != null)
             {
                 writer.WriteStartElement("responsibleParty");
-                responsibleParty.templateId = templateId;
+                responsibleParty.TemplateId = templateId;
                 responsibleParty.WriteXml(writer);
                 writer.WriteEndElement();
             }
 
             if (participant != null)
             {
-                foreach (p_participation_000089 item in participant)
+                foreach (GeneralParticipationClass item in participant)
                 {
                     writer.WriteStartElement("encounterParticipant");
                     item.TemplateId = templateId;
@@ -106,7 +89,7 @@ namespace nhs.itk.hl7v3.cda.classes
             if (location != null)
             {
                 writer.WriteStartElement("location");
-                location.templateId = templateId;
+                location.TemplateId = templateId;
                 location.WriteXml(writer);
                 writer.WriteEndElement();
             }

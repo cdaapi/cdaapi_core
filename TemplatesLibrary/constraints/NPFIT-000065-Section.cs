@@ -7,8 +7,8 @@ using System.Xml.Serialization;
 namespace nhs.itk.hl7v3.templates
 {
     /// <summary>
-    /// Constraint for ClinicalDocument.encompassingEncounter.healthCareFacility
+    /// Constraint for Text Section
     /// </summary>
-    public interface NPFIT_000090_Role : ITemplateConstraint
+    public interface NPFIT_000065_Section : ITemplateConstraint 
     { }
 }

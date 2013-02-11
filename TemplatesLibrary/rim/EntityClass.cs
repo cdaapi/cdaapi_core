@@ -35,6 +35,8 @@ namespace nhs.itk.hl7v3.rim
 
         internal List<II> id;
 
+        internal String itsEntityTag;
+
 
         internal EntityClass()
         { }

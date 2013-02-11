@@ -67,6 +67,11 @@ namespace nhs.itk.hl7v3.cda
             code.DisplayName = displayName;
         }
 
+        public void SetDocumentCodeSnomedCT(string codeValue)
+        {
+            code = new CV<string>(codeValue, OIDStore.OIDCodeSystemSnomedCT, null, null);
+        }
+
         public void SetDocumentCodeLocal(string codeValue, string displayName, string codeSystem)
         {
             code = new CV<string>(codeValue, codeSystem, null, null);
@@ -143,6 +148,21 @@ namespace nhs.itk.hl7v3.cda
             }
 
         }
+
+        public void SetConfidentialityCode (string code, string displayName, string oid)
+        {
+
+               this.confidentialityCode = new CV<string>(
+               code,
+               oid,
+               null,
+               null
+               );
+
+               this.confidentialityCode.DisplayName = displayName;
+
+        }
+
 
         /// <summary>
         /// Set the Message Type for the CDA document

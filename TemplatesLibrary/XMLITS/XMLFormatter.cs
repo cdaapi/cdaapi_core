@@ -6,8 +6,8 @@ using System.IO;
 using System.Xml;
 
 using MARC.Everest.DataTypes;
-using MARC.Everest.Formatters.XML.ITS1;
 using MARC.Everest.Interfaces;
+using MARC.Everest.Formatters.XML.Datatypes.R1;
 
 namespace nhs.itk.hl7v3.xml
 {
@@ -27,9 +27,8 @@ namespace nhs.itk.hl7v3.xml
             {
                 xmlWriter.WriteStartElement(elementName);
 
-                Formatter fmtr = new Formatter();
-                fmtr.GraphAides.Add(typeof(MARC.Everest.Formatters.XML.Datatypes.R1.Formatter));
-                fmtr.GraphObject(xmlWriter, dataType);                 
+                DatatypeFormatter ft = new DatatypeFormatter(DatatypeFormatterCompatibilityMode.ClinicalDocumentArchitecture);
+                ft.GraphObject(xmlWriter, dataType);
                 xmlWriter.WriteEndElement();
             }
         }
@@ -44,10 +43,9 @@ namespace nhs.itk.hl7v3.xml
             if (dataType != null)
             {
                 xmlWriter.WriteStartElement(elementName, localNamespace);
-                Formatter fmtr = new Formatter();
-                fmtr.GraphAides.Add(typeof(MARC.Everest.Formatters.XML.Datatypes.R1.Formatter));
-                fmtr.GraphObject(xmlWriter, dataType);
 
+                DatatypeFormatter ft = new DatatypeFormatter(DatatypeFormatterCompatibilityMode.ClinicalDocumentArchitecture);
+                ft.GraphObject(xmlWriter, dataType);
                 xmlWriter.WriteEndElement();
             }
         }

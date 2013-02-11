@@ -47,6 +47,12 @@ namespace nhs.itk.hl7v3.cda.classes
             base.AddId(root, extension);
         }
 
+        internal void SetIdNull(string flavorCode)
+        {
+            base.SetIdNull(flavorCode);
+        }
+
+
         #region XML Serialization Members
 
         internal void WriteXml(XmlWriter writer)

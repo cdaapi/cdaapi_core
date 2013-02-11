@@ -42,7 +42,5 @@ namespace nhs.itk.hl7v3.rim
             this.typeCode = typeCode;
             this.contextControlCode = contextControlCode;
         }
-
-
     }
 }

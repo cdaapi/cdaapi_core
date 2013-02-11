@@ -61,10 +61,10 @@ namespace nhs.itk.hl7v3.cda.classes
             base.SetCode(codeSystemValue, codeValue, displayNameValue);
         }
 
-        //public void SetCodeSnomedCT(string codeValue, string displayNameValue)
-        //{
-        //    base.SetCode(OIDStore.OIDCodeSystemSnomedCT, codeValue, displayNameValue);
-        //}
+        public void SetCodeSnomedCT(string codeValue, string displayNameValue = null)
+        {
+            base.SetCode(OIDStore.OIDCodeSystemSnomedCT, codeValue, displayNameValue);
+        }
 
         public void SetCodeSnomedCTComposition(SnomedConcept DocumentType, SnomedConcept CareSetting)
         {
